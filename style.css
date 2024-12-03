@@ -1,0 +1,37 @@
+.customSlider {
+    -webkit-appearance: none; /* Remove default styling for WebKit browsers */
+    appearance: none; /* Remove default styling for modern browsers */
+    width: 100%; /* Full width of the container */
+    height: 10px; /* Adjust the visible track height */
+    background: #6f6c6c; /* Track background color */
+    border-radius: 5px; /* Rounded edges for the track */
+    outline: none; /* Remove focus outline */
+  }
+  
+  /* Style the track (WebKit browsers) */
+  .customSlider::-webkit-slider-runnable-track {
+    height: 30px; /* Adjust thickness */
+    background: #ffffff; /* Track color */
+    border-radius: 5px; /* Optional: Rounded edges */
+  }
+  
+  /* Style the thumb (WebKit browsers) */
+  .customSlider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default thumb styling */
+    appearance: none; /* For modern browsers */
+    width: 30px; /* Thumb width */
+    height: 30px; /* Thumb height */
+    background: #666; /* Thumb color */
+    border-radius: 50%; /* Make thumb circular */
+    cursor: pointer; /* Change cursor on hover */
+  }
+  
+  /* Style the thumb (Firefox) */
+  .customSlider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #666;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
