@@ -50,7 +50,6 @@ function preload() {
   battleImages['Battle of Sedan'] = loadImage('images/battle-image-Sedan.jpg');
   battleImages['Battle of Arras'] = loadImage('images/battle-image-Arras.jpg');
   battleImages['Battle of Dunkirk'] = loadImage('images/battle-image-Dunkirk.jpg');
-  battleImages['Battle of Belgium'] = loadImage('images/battle-image-Belgium.jpg');
   battleImages['Battle of the Netherlands'] = loadImage('images/battle-image-Netherlands.jpg');
   battleImages['Battle of Lille'] = loadImage('images/battle-image-Lille.jpg');
   battleImages['Battle of Abbeville'] = loadImage('images/battle-image-Abbeville.jpg');
@@ -64,6 +63,9 @@ function preload() {
   battleImages['Battle of Raate Road'] = loadImage('images/battle-image-RaateRoad.jpg');
   battleImages['Battle of Kollaa'] = loadImage('images/battle-image-Kollaa.jpg');
   battleImages['The invasion of Poland'] = loadImage('images/battle-image-Poland.jpg');
+  battleImages['The invasion of Denmark'] = loadImage('images/battle-image-Denmark.jpg');
+  battleImages['The invasion of Norway'] = loadImage('images/battle-image-Norway.jpg');	
+  battleImages['The invasion of Belgium'] = loadImage('images/battle-image-Belgium.jpg');
   
   
 }
@@ -902,161 +904,205 @@ function defineDataPoints() {
   // Date: April 1940
   // Month index: 7
   dataPoints[7].push({
-    x: 360,
-    y: 300,
+    x: 883, 
+    y: 767,
     civilians: 15,
     allied: 23,
     axis: 3,
     location: 'Denmark',
     date: 'April 1940',
     winner: 'Axis',
-    summary: '',
-    battleName: 'Invasion of Denmark'
+    summary: 'The invasion of Denmark saw German forces quickly occupy the country to secure a strategic position for their campaign in Norway. Despite heavy German air and naval superiority, Denmark surrendered with minimal resistance to avoid further destruction.',
+    battleName: 'The invasion of Denmark'
   });
 
   // Battle 10:
   // Date: April 1940
   // Month index: 7
+  // Oslo
   dataPoints[7].push({
-    x: 350,
-    y: 250,
+    x: 920,
+    y: 642,
     civilians: 1700,
     allied: 4900,
     axis: 5300,
     location: 'Norway',
     date: 'April 1940',
     winner: 'Axis',
-    summary: '',
-    battleName: 'Invasion of Norway'
+    summary: 'The Invasion of Norway, also known as Operation Weserübung, involved German forces attacking multiple points along the Norwegian coast simultaneously. The Germans aimed to secure key ports and deny them to the Allies, leading to a swift occupation despite Norwegian resistance.',
+    battleName: 'The invasion of Norway'
   });
 
+    // Additional points for the same battle
+    // South
+    dataPoints[7].push({
+      x: 835,
+      y: 688,
+      civilians: 1700,
+      allied: 4900,
+      axis: 5300,
+      location: 'Norway',
+      date: 'April 1940',
+      winner: 'Axis',
+      summary: 'The Invasion of Norway, also known as Operation Weserübung, involved German forces attacking multiple points along the Norwegian coast simultaneously. The Germans aimed to secure key ports and deny them to the Allies, leading to a swift occupation despite Norwegian resistance.',
+      battleName: 'The invasion of Norway'
+    });
+  
+    // West
+    dataPoints[7].push({
+      x: 810,
+      y: 610,
+      civilians: 1700,
+      allied: 4900,
+      axis: 5300,
+      location: 'Norway',
+      date: 'April 1940',
+      winner: 'Axis',
+      summary: 'The Invasion of Norway, also known as Operation Weserübung, involved German forces attacking multiple points along the Norwegian coast simultaneously. The Germans aimed to secure key ports and deny them to the Allies, leading to a swift occupation despite Norwegian resistance.',
+      battleName: 'The invasion of Norway'
+    });
+
+    // North
+    dataPoints[7].push({
+      x: 1000,
+      y: 455,
+      civilians: 1700,
+      allied: 4900,
+      axis: 5300,
+      location: 'Norway',
+      date: 'April 1940',
+      winner: 'Axis',
+      summary: 'The Invasion of Norway, also known as Operation Weserübung, involved German forces attacking multiple points along the Norwegian coast simultaneously. The Germans aimed to secure key ports and deny them to the Allies, leading to a swift occupation despite Norwegian resistance.',
+      battleName: 'The invasion of Norway'
+    });
+  
   // Battles for the Blitzkrieg (May–June 1940)
   // May 1940 is index 8
   // June 1940 is index 9
 
   // Battle of Sedan
   dataPoints[8].push({
-    x: 310,
-    y: 420,
+    x: 795, 
+    y: 900, 
     civilians: 2000,
     allied: 65000,
     axis: 10000,
     location: 'Sedan, France',
-    date: '12–15 May 1940',
+    date: '12-15 May 1940',
     winner: 'Axis',
-    summary: '',
+    summary: 'The Battle of Sedan was a pivotal conflict where German forces used blitzkrieg tactics to break through the French defenses along the Meuse River. The rapid advance of German tanks and infantry led to the encirclement of French forces, contributing to the swift collapse of France.',
     battleName: 'Battle of Sedan'
   });
 
   // Battle of Arras
   dataPoints[8].push({
-    x: 290,
-    y: 410,
+    x: 757, 
+    y: 890, 
     civilians: 1000,
     allied: 30000,
     axis: 3000,
     location: 'Arras, France',
     date: '21 May 1940',
     winner: 'Allies',
-    summary: '',
+    summary: 'The Battle of Arras was a counterattack by British and French forces aimed at halting the German advance. Despite initial successes, including the use of tanks, the attack ultimately failed as German forces quickly reinforced their positions, allowing them to continue their advance.',
     battleName: 'Battle of Arras'
   });
 
   // Battle of Belgium
   dataPoints[8].push({
-    x: 310,
-    y: 395,
+    x: 780, 
+    y: 870, 
     civilians: 4000,
     allied: 85000,
     axis: 10000,
     location: 'Belgium',
     date: '10–28 May 1940',
     winner: 'Axis',
-    summary: '',
-    battleName: 'Battle of Belgium'
+    summary: 'The invasion of Belgium saw German forces launch a rapid attack through the Ardennes, bypassing the heavily fortified Maginot Line. Belgian and Allied forces were quickly overwhelmed, and the country was occupied, facilitating the German advance into France.',
+    battleName: 'The invasion of Belgium'
   });
 
   // Battle of the Netherlands
   dataPoints[8].push({
-    x: 310,
-    y: 370,
+    x: 815, 
+    y: 836, 
     civilians: 10000,
     allied: 50000,
     axis: 7000,
     location: 'Netherlands',
     date: '10–14 May 1940',
     winner: 'Axis',
-    summary: '',
+    summary: 'The invasion of the Netherlands involved a swift German attack using airborne troops to capture key bridges and airfields. Despite fierce resistance, the Netherlands surrendered after the devastating bombing of Rotterdam, allowing Germany to continue its advance into Western Europe.',
     battleName: 'Battle of the Netherlands'
   });
 
   // Battle of Dunkirk
   dataPoints[8].push({
-    x: 270,
-    y: 400,
+    x: 736, 
+    y: 872,
     civilians: 1000,
     allied: 80000,
     axis: 6000,
     location: 'Dunkirk, France',
     date: '26 May – 4 June 1940',
     winner: 'Axis',
-    summary: '',
+    summary: 'The Battle of Dunkirk was a critical engagement where Allied forces were surrounded by advancing German troops. Despite heavy attacks, the successful evacuation of over 300,000 soldiers across the English Channel, known as the "Miracle of Dunkirk," preserved much of the Allied army.',
     battleName: 'Battle of Dunkirk'
   });
 
   // Battle of Lille
   dataPoints[8].push({
-    x: 280,
-    y: 405,
+    x: 764, 
+    y: 885,
     civilians: 500,
     allied: 35000,
     axis: 3000,
     location: 'Lille, France',
     date: '28–31 May 1940',
     winner: 'Axis',
-    summary: '',
+    summary: 'The Battle of Lille saw French forces valiantly defend against encircling German troops to delay their advance. This allowed a significant number of Allied forces to retreat toward Dunkirk, but the French defenders were ultimately forced to surrender after intense fighting.',
     battleName: 'Battle of Lille'
   });
 
   // Battle of Calais
   dataPoints[8].push({
-    x: 265,
-    y: 395,
+    x: 727, 
+    y: 882,
     civilians: 500,
     allied: 10000,
     axis: 1000,
     location: 'Calais, France',
     date: '22–26 May 1940',
     winner: 'Axis',
-    summary: '',
+    summary: 'The Battle of Calais involved a desperate Allied defense to hold the port against advancing German forces. Although the defenders were eventually overwhelmed, their resistance delayed the German advance, aiding the evacuation of Allied troops from Dunkirk.',
     battleName: 'Battle of Calais'
   });
 
   // Battle of Abbeville
   dataPoints[8].push({
-    x: 290,
-    y: 415,
+    x: 727, 
+    y: 905,
     civilians: 500,
     allied: 15000,
     axis: 2000,
     location: 'Abbeville, France',
     date: '27 May – 4 June 1940',
     winner: 'Allies',
-    summary: '',
+    summary: 'The Battle of Abbeville was a fierce Allied counterattack aimed at breaking German control over the Somme bridges. Despite initial successes, the Allies were unable to dislodge the Germans, who maintained their strategic position and continued their advance into France.',
     battleName: 'Battle of Abbeville'
   });
 
   // Battle of Le Havre (June 1940)
   dataPoints[9].push({
-    x: 270,
-    y: 430,
+    x: 705, 
+    y: 907,
     civilians: 500,
     allied: 5000,
     axis: 1000,
     location: 'Le Havre, France',
     date: '10–12 June 1940',
     winner: 'Axis',
-    summary: '',
+    summary: 'The Battle of Le Havre was part of the Allied campaign to liberate France, where British forces launched a major assault to capture the port city from German defenders. After intense fighting and heavy bombardments, the Allies secured Le Havre, ensuring a vital supply route.',
     battleName: 'Battle of Le Havre'
   });
 
