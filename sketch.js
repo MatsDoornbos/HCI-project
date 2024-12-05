@@ -38,24 +38,33 @@ let scrollBoxTransitioning = false; // Flag to indicate if the box is transition
 
 function preload() {
   // Load the Europe map image
-  europeMap = loadImage('europe-map.jpg');
-  titleBanner = loadImage('title-banner.png');
+  europeMap = loadImage('images/europe-map.jpg');
+  titleBanner = loadImage('images/title-banner.png');
 
   // Load the man icon images for different death types
-  manIconBlue = loadImage('man-icon-blue.png');   // Allied soldiers
-  manIconRed = loadImage('man-icon-red.png');     // Axis soldiers
-  manIconGreen = loadImage('man-icon-green.png'); // Civilians
+  manIconBlue = loadImage('images/man-icon-blue.png');   // Allied soldiers
+  manIconRed = loadImage('images/man-icon-red.png');     // Axis soldiers
+  manIconGreen = loadImage('images/man-icon-green.png'); // Civilians
 
   // Load battle images
-  battleImages['Battle of Sedan'] = loadImage('battle-image-Sedan.jpg');
-  battleImages['Battle of Arras'] = loadImage('battle-image-Arras.jpg');
-  battleImages['Battle of Dunkirk'] = loadImage('battle-image-Dunkirk.jpg');
-  battleImages['Battle of Belgium'] = loadImage('battle-image-Belgium.jpg');
-  battleImages['Battle of the Netherlands'] = loadImage('battle-image-Netherlands.jpg');
-  battleImages['Battle of Lille'] = loadImage('battle-image-Lille.jpg');
-  battleImages['Battle of Abbeville'] = loadImage('battle-image-Abbeville.jpg');
-  battleImages['Battle of Calais'] = loadImage('battle-image-Calais.jpg');
-  battleImages['Battle of Le Havre'] = loadImage('battle-image-Le Havre.jpg');
+  battleImages['Battle of Sedan'] = loadImage('images/battle-image-Sedan.jpg');
+  battleImages['Battle of Arras'] = loadImage('images/battle-image-Arras.jpg');
+  battleImages['Battle of Dunkirk'] = loadImage('images/battle-image-Dunkirk.jpg');
+  battleImages['Battle of Belgium'] = loadImage('images/battle-image-Belgium.jpg');
+  battleImages['Battle of the Netherlands'] = loadImage('images/battle-image-Netherlands.jpg');
+  battleImages['Battle of Lille'] = loadImage('images/battle-image-Lille.jpg');
+  battleImages['Battle of Abbeville'] = loadImage('images/battle-image-Abbeville.jpg');
+  battleImages['Battle of Calais'] = loadImage('images/battle-image-Calais.jpg');
+  battleImages['Battle of Le Havre'] = loadImage('images/battle-image-Le Havre.jpg');
+  battleImages['Battle of Tomaszów Lubelski'] = loadImage('images/battle-image-Tomaszow.jpg');
+  battleImages['Battle of Salla'] = loadImage('images/battle-image-Salla.jpg');
+  battleImages['Battle of Summa 1'] = loadImage('images/battle-image-Summa1.jpg');
+  battleImages['Battle of Summa 2'] = loadImage('images/battle-image-Summa2.jpg');
+  battleImages['Battle of Suomussalmi'] = loadImage('images/battle-image-Suomussalmi.jpg');
+  battleImages['Battle of Raate Road'] = loadImage('images/battle-image-RaateRoad.jpg');
+  battleImages['Battle of Kollaa'] = loadImage('images/battle-image-Kollaa.jpg');
+  battleImages['The invasion of Poland'] = loadImage('images/battle-image-Poland.jpg');
+  
   
 }
 
@@ -765,31 +774,31 @@ function defineDataPoints() {
   // Date: 1 September 1939
   // Month index: (1939 - 1939)*12 + (9 - 9) = 0
   dataPoints[0].push({
-    x: 580,
-    y: 1000,
+    x: 1005, 
+    y: 825, 
     civilians: 7000,
     allied: 66000,
     axis: 14000,
     location: 'Poland',
     date: '1 September 1939',
     winner: 'Axis',
-    summary: '',
-    battleName: 'invasion of poland'
+    summary: 'World War II began with the German invasion of Poland. Germany attacked Poland using the Blitzkrieg tactic, a fast and coordinated assault. This surprise attack quickly broke through the Polish defense lines, allowing the Germans to capture large parts of Poland within a few weeks.',
+    battleName: 'The invasion of Poland'
   });
 
   // Battle 2:
   // Date: 17 September 1939
   // Month index: 0
   dataPoints[0].push({
-    x: 450,
-    y: 360,
+    x: 1150,
+    y: 875,
     civilians: 0,
     allied: 870,
     axis: 927,
     location: 'Poland',
     date: '17 September 1939',
     winner: 'Axis',
-    summary: '',
+    summary: 'The battle was a significant engagement in Poland, where Polish forces attempted to break through German lines to reach the Romanian Bridgehead. Despite initial successes, the Polish forces were overwhelmed by superior German reinforcements and forced to surrender after heavy fighting.',
     battleName: 'Battle of Tomaszów Lubelski'
   });
 
@@ -797,15 +806,15 @@ function defineDataPoints() {
   // Date: November 1939
   // Month index: 2
   dataPoints[2].push({
-    x: 580,
-    y: 200,
+    x: 1270,
+    y: 475,
     civilians: 0,
     allied: 650,
     axis: 4000,
     location: 'Finland',
     date: 'November 1939',
     winner: 'Allied',
-    summary: '',
+    summary: 'The battle of Salla was part of the Winter War between Finland and the Soviet Union, occurring near the Finnish town of Salla. Finnish forces successfully repelled Soviet advances. The extreme cold, often dropping below -30°C, with Finnish troops using the harsh winter conditions to their advantage.',
     battleName: 'Battle of Salla'
   });
 
@@ -813,31 +822,31 @@ function defineDataPoints() {
   // Date: December 1939
   // Month index: 3
   dataPoints[3].push({
-    x: 570,
-    y: 180,
+    x: 1295,
+    y: 628,
     civilians: 0,
     allied: 1000,
     axis: 4000,
     location: 'Finland',
     date: 'December 1939',
     winner: 'Allied',
-    summary: '',
-    battleName: 'battle of summa 1'
+    summary: 'The first phase of the Battle of Summa saw Finnish forces defending strong positions against intense Soviet attacks. Despite being outnumbered, the Finns used the terrain to their advantage, inflicting heavy casualties on the advancing Soviet troops.',
+    battleName: 'Battle of Summa 1'
   });
 
   // Battle 5:
   // Date: January 1940
   // Month index: 4
   dataPoints[4].push({
-    x: 560,
-    y: 195,
+    x: 1280,
+    y: 515,
     civilians: 0,
     allied: 2700,
     axis: 29000,
     location: 'Finland',
     date: 'January 1940',
     winner: 'Allied',
-    summary: '',
+    summary: 'The Battle of Suomussalmi saw Finnish forces effectively encircle and destroy a large Soviet division. Using superior tactics and knowledge of the terrain, the Finns inflicted heavy casualties on the Soviet forces, leading to a significant victory. It is the most remarkable Finnish successes in the Winter War.',
     battleName: 'Battle of Suomussalmi'
   });
 
@@ -845,15 +854,15 @@ function defineDataPoints() {
   // Date: January 1940
   // Month index: 4
   dataPoints[4].push({
-    x: 550,
-    y: 170,
+    x: 1295,
+    y: 510,
     civilians: 0,
     allied: 310,
     axis: 8000,
     location: 'Finland',
     date: 'January 1940',
     winner: 'Allied',
-    summary: '',
+    summary: 'The Battle of Raate Road was a decisive Finnish victory during the Winter War, where Finnish forces ambushed and encircled a Soviet division. Using hit-and-run tactics and the harsh winter terrain, the Finns inflicted heavy losses, forcing the Soviets to retreat.',
     battleName: 'Battle of Raate Road'
   });
 
@@ -861,31 +870,31 @@ function defineDataPoints() {
   // Date: February 1940
   // Month index: 5
   dataPoints[5].push({
-    x: 570,
-    y: 180,
+    x: 1295,
+    y: 628,
     civilians: 0,
     allied: 2000,
     axis: 2000,
     location: 'Finland',
     date: 'February 1940',
     winner: 'Axis',
-    summary: '',
-    battleName: 'battle of summa 2'
+    summary: 'In the second phase of the Battle of Summa, Soviet forces launched a more concentrated assault, gradually breaking through Finnish defenses. Despite fierce resistance, the Finns were eventually forced to retreat as Soviet reinforcements and artillery overwhelmed their positions.',
+    battleName: 'Battle of Summa 2'
   });
 
   // Battle 8:
   // Date: March 1940
   // Month index: 6
   dataPoints[6].push({
-    x: 560,
-    y: 160,
+    x: 1338,
+    y: 585,
     civilians: 0,
     allied: 1500,
     axis: 8000,
     location: 'Finland',
     date: 'March 1940',
     winner: 'Axis',
-    summary: '',
+    summary: 'The Battle of Kollaa was a key battle in the Winter War, where Finnish forces held strong defensive positions against repeated Soviet offensives. Despite being outnumbered, the Finns successfully repelled Soviet attacks, inflicting heavy casualties and maintaining control of the area.',
     battleName: 'Battle of Kollaa'
   });
 
