@@ -61,13 +61,17 @@ function preload() {
   battleImages['Battle of Kollaa'] = loadImage('images/battle-image-Kollaa.jpg');
   battleImages['Battle of the Channel'] = loadImage('images/battle-image-Channel.jpg');
   battleImages['Battle of London'] = loadImage('images/battle-image-London.jpg');
+  battleImages['Battle of Crete'] = loadImage('images/battle-image-Crete.jpg');
   battleImages['Operation Eagle Kent'] = loadImage('images/battle-image-Kent.jpg');
   battleImages['Operation Eagle Southampton'] = loadImage('images/battle-image-Southampton.jpg');
   battleImages['Operation Eagle Plymouth'] = loadImage('images/battle-image-Plymouth.jpg');
+  battleImages['Operation Barbarossa'] = loadImage('images/battle-image-Barbarossa.jpg');
   battleImages['The invasion of Poland'] = loadImage('images/battle-image-Poland.jpg');
   battleImages['The invasion of Denmark'] = loadImage('images/battle-image-Denmark.jpg');
   battleImages['The invasion of Norway'] = loadImage('images/battle-image-Norway.jpg');	
   battleImages['The invasion of Belgium'] = loadImage('images/battle-image-Belgium.jpg');
+  battleImages['The invasion of Greece'] = loadImage('images/battle-image-Greece.jpg');
+  battleImages['The invasion of Yugoslavia'] = loadImage('images/battle-image-Yugoslavia.jpg');
 
 }
 
@@ -1181,7 +1185,7 @@ function defineDataPoints() {
     battleName: 'Operation Eagle Kent'
   });
 
-  // Bombardementen London
+  // Bombardementen London august
   dataPoints[11].push({
     x: 688, 
     y: 850,
@@ -1195,7 +1199,7 @@ function defineDataPoints() {
     battleName: 'Battle of London'
   });
 
-  // Bombardementen London
+  // Bombardementen London september
   dataPoints[12].push({
     x: 688, 
     y: 850,
@@ -1209,6 +1213,355 @@ function defineDataPoints() {
     battleName: 'Battle of London'
   });
 
+  // Italian invasion of Greece october
+  dataPoints[13].push({
+    x: 1120,
+    y: 1140,
+    civilians: 15000,
+    allied: 9000,
+    axis: 12000,
+    location: 'Greece',
+    date: '28 October 1940 - 23 April 1941',
+    winner: 'Axis',
+    summary: 'The Italian invasion of Greece, launched on 28 October 1940, aimed for a swift conquest but met fierce Greek resistance. The Greeks counterattacked, pushing Italian forces back into Albania. After multiple failed offensives, Germany intervened in April 1941, launching a combined invasion through Bulgaria.',
+    battleName: 'The invasion of Greece'
+  });
+  // Italian invasion of Greece november
+  dataPoints[14].push({
+    x: 1120,
+    y: 1140,
+    civilians: 15000,
+    allied: 9000,
+    axis: 12000,
+    location: 'Greece',
+    date: '28 October 1940 - 23 April 1941',
+    winner: 'Axis',
+    summary: 'The Italian invasion of Greece, launched on 28 October 1940, aimed for a swift conquest but met fierce Greek resistance. The Greeks counterattacked, pushing Italian forces back into Albania. After multiple failed offensives, Germany intervened in April 1941, launching a combined invasion through Bulgaria.',
+    battleName: 'The invasion of Greece'
+  });
+  // Italian invasion of Greece december
+  dataPoints[15].push({
+    x: 1120,
+    y: 1140,
+    civilians: 15000,
+    allied: 9000,
+    axis: 12000,
+    location: 'Greece',
+    date: '28 October 1940 - 23 April 1941',
+    winner: 'Axis',
+    summary: 'The Italian invasion of Greece, launched on 28 October 1940, aimed for a swift conquest but met fierce Greek resistance. The Greeks counterattacked, pushing Italian forces back into Albania. After multiple failed offensives, Germany intervened in April 1941, launching a combined invasion through Bulgaria.',
+    battleName: 'The invasion of Greece'
+  });
+  // Italian invasion of Greece january
+  dataPoints[16].push({
+    x: 1120,
+    y: 1140,
+    civilians: 15000,
+    allied: 9000,
+    axis: 12000,
+    location: 'Greece',
+    date: '28 October 1940 - 23 April 1941',
+    winner: 'Axis',
+    summary: 'The Italian invasion of Greece, launched on 28 October 1940, aimed for a swift conquest but met fierce Greek resistance. The Greeks counterattacked, pushing Italian forces back into Albania. After multiple failed offensives, Germany intervened in April 1941, launching a combined invasion through Bulgaria.',
+    battleName: 'The invasion of Greece'
+  });
+  // Italian invasion of Greece february
+  dataPoints[17].push({
+    x: 1120,
+    y: 1140,
+    civilians: 15000,
+    allied: 9000,
+    axis: 12000,
+    location: 'Greece',
+    date: '28 October 1940 - 23 April 1941',
+    winner: 'Axis',
+    summary: 'The Italian invasion of Greece, launched on 28 October 1940, aimed for a swift conquest but met fierce Greek resistance. The Greeks counterattacked, pushing Italian forces back into Albania. After multiple failed offensives, Germany intervened in April 1941, launching a combined invasion through Bulgaria.',
+    battleName: 'The invasion of Greece'
+  });
+  // Italian invasion of Greece march
+  dataPoints[18].push({
+    x: 1120,
+    y: 1140,
+    civilians: 15000,
+    allied: 9000,
+    axis: 12000,
+    location: 'Greece',
+    date: '28 October 1940 - 23 April 1941',
+    winner: 'Axis',
+    summary: 'The Italian invasion of Greece, launched on 28 October 1940, aimed for a swift conquest but met fierce Greek resistance. The Greeks counterattacked, pushing Italian forces back into Albania. After multiple failed offensives, Germany intervened in April 1941, launching a combined invasion through Bulgaria.',
+    battleName: 'The invasion of Greece'
+  });
+  // Italian invasion of Greece april
+  dataPoints[19].push({
+    x: 1120,
+    y: 1140,
+    civilians: 15000,
+    allied: 9000,
+    axis: 12000,
+    location: 'Greece',
+    date: '28 October 1940 - 23 April 1941',
+    winner: 'Axis',
+    summary: 'The Italian invasion of Greece, launched on 28 October 1940, aimed for a swift conquest but met fierce Greek resistance. The Greeks counterattacked, pushing Italian forces back into Albania. After multiple failed offensives, Germany intervened in April 1941, launching a combined invasion through Bulgaria.',
+    battleName: 'The invasion of Greece'
+  });
+
+  // Invaison of Yugoslavia april 1941
+  dataPoints[19].push({
+    x: 995,
+    y: 995,
+    civilians: 15000,
+    allied: 60000,
+    axis: 12000,
+    location: 'Yugoslavia',
+    date: '6 April 1941 - 17 April 1941',
+    winner: 'Axis',
+    summary: 'Germany, Italy, and Hungary invaded Yugoslavia after a coup removed the pro-Axis government. The campaign ended with the occupation and division of Yugoslavia among the Axis powers.',
+    battleName: 'The invasion of Yugoslavia'
+  });
+
+  // Battle of Crete may 1941
+  dataPoints[20].push({
+    x: 1200,
+    y: 1250,
+    civilians: 15000,
+    allied: 15000,
+    axis: 6000,
+    location: 'Crete, Greece',
+    date: '20 May 1941 - 1 June 1941',
+    winner: 'Axis',
+    summary: 'Germany launched the first large-scale airborne invasion in history. Despite fierce resistance from British, Greek, and Cretan forces, the Germans captured the island after heavy casualties.',
+    battleName: 'Battle of Crete'
+  });
+  // Battle of Crete june 1941
+  dataPoints[20].push({
+    x: 1200,
+    y: 1250,
+    civilians: 15000,
+    allied: 15000,
+    axis: 6000,
+    location: 'Crete, Greece',
+    date: '20 May 1941 - 1 June 1941',
+    winner: 'Axis',
+    summary: 'Germany launched the first large-scale airborne invasion in history. Despite fierce resistance from British, Greek, and Cretan forces, the Germans captured the island after heavy casualties.',
+    battleName: 'Battle of Crete'
+  });
+
+  // Operation Barbarossa june 1941
+  // Battle 1: Battle of Białystok-Minsk
+  dataPoints[20].push({
+    x: 1238,
+    y: 785,
+    civilians: 50000,
+    allied: 300000,
+    axis: 25000,
+    location: 'Białystok-Minsk, Soviet Union',
+    date: '22 June 1941 - 28 June 1941',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+
+  // Battle 2: Battle of Smolensk july 1941
+  dataPoints[21].push({
+    x: 1350,
+    y: 770,
+    civilians: 60000,
+    allied: 500000,
+    axis: 40000,
+    location: 'Smolensk, Soviet Union',
+    date: '10 July 1941 - 10 September 1941',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 2: Battle of Smolensk august 1941
+  dataPoints[22].push({
+    x: 1350,
+    y: 770,
+    civilians: 60000,
+    allied: 500000,
+    axis: 40000,
+    location: 'Smolensk, Soviet Union',
+    date: '10 July 1941 - 10 September 1941',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 2: Battle of Smolensk september 1941
+  dataPoints[23].push({
+    x: 1350,
+    y: 770,
+    civilians: 60000,
+    allied: 500000,
+    axis: 40000,
+    location: 'Smolensk, Soviet Union',
+    date: '10 July 1941 - 10 September 1941',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+
+  // Battle 3: Battle of Kiev july 1941
+  dataPoints[21].push({
+    x: 1320,
+    y: 885,
+    civilians: 80000,
+    allied: 660000,
+    axis: 35000,
+    location: 'Kiev, Soviet Union',
+    date: '7 July 1941 - 26 September 1941',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 3: Battle of Kiev august 1941
+  dataPoints[22].push({
+    x: 1320,
+    y: 885,
+    civilians: 80000,
+    allied: 660000,
+    axis: 35000,
+    location: 'Kiev, Soviet Union',
+    date: '7 July 1941 - 26 September 1941',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 3: Battle of Kiev september 1941
+  dataPoints[23].push({
+    x: 1320,
+    y: 885,
+    civilians: 80000,
+    allied: 660000,
+    axis: 35000,
+    location: 'Kiev, Soviet Union',
+    date: '7 July 1941 - 26 September 1941',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+
+  // Battle 4: Battle of Vyazma september 1941
+  dataPoints[23].push({
+    x: 1400,
+    y: 750,
+    civilians: 40000,
+    allied: 150000,
+    axis: 25000,
+    location: 'Vyazma, Soviet Union',
+    date: '30 September 1941 - 6 October 1941',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 4: Battle of Vyazma october 1941
+  dataPoints[24].push({
+    x: 1400,
+    y: 750,
+    civilians: 40000,
+    allied: 150000,
+    axis: 25000,
+    location: 'Vyazma, Soviet Union',
+    date: '30 September 1941 - 6 October 1941',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  
+  // Battle 5: Battle of Moscow october 1941
+  dataPoints[24].push({
+    x: 1440,
+    y: 735,
+    civilians: 100000,
+    allied: 500000,
+    axis: 250000,
+    location: 'Moscow, Soviet Union',
+    date: '5 October 1941 - 7 December 1941',
+    winner: 'Soviet Union', // of allies?
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 5: Battle of Moscow november 1941
+  dataPoints[25].push({
+    x: 1440,
+    y: 735,
+    civilians: 100000,
+    allied: 500000,
+    axis: 250000,
+    location: 'Moscow, Soviet Union',
+    date: '5 October 1941 - 7 December 1941',
+    winner: 'Soviet Union', // of allies?
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 5: Battle of Moscow december 1941
+  dataPoints[26].push({
+    x: 1440,
+    y: 735,
+    civilians: 100000,
+    allied: 500000,
+    axis: 250000,
+    location: 'Moscow, Soviet Union',
+    date: '5 October 1941 - 7 December 1941',
+    winner: 'Soviet Union', // of allies?
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+
+  // Battle 6: Battle of Tikhvin november 1941
+  dataPoints[25].push({
+    x: 1358,
+    y: 665,
+    civilians: 20000,
+    allied: 300000,
+    axis: 25000,
+    location: 'Tikhvin, Soviet Union',
+    date: '8 November 1941 - 9 December 1941',
+    winner: 'Soviet Union', // of allies?
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 6: Battle of Tikhvin december 1941
+  dataPoints[26].push({
+    x: 1358,
+    y: 665,
+    civilians: 20000,
+    allied: 300000,
+    axis: 25000,
+    location: 'Tikhvin, Soviet Union',
+    date: '8 November 1941 - 9 December 1941',
+    winner: 'Soviet Union', // of allies?
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+    
+  // Battle 7: Battle of Rostov november 1941
+  dataPoints[26].push({
+    x: 1470,
+    y: 985,
+    civilians: 20000,
+    allied: 40000,
+    axis: 30000,
+    location: 'Rostov-on-Don, Soviet Union',
+    date: '17 November 1941 - 2 December 1941',
+    winner: 'Allies',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 7: Battle of Rostov december 1941
+  dataPoints[27].push({
+    x: 1510,
+    y: 955,
+    civilians: 20000,
+    allied: 40000,
+    axis: 30000,
+    location: 'Rostov-on-Don, Soviet Union',
+    date: '17 November 1941 - 2 December 1941',
+    winner: 'Allies',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+    
   
 
   // Compute minDeaths and maxDeaths
