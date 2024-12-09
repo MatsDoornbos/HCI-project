@@ -1,6 +1,5 @@
 // Global variable declarations
-let europeMap;
-let titleBanner;
+let europeMap, titleBanner;
 let bannerHeight;
 let dataPoints = [];
 let currentMonth = 0;
@@ -16,9 +15,7 @@ let transitioning = false;
 
 let glowLayer;
 
-let manIconRed;
-let manIconBlue;
-let manIconGreen;
+let manIconRed, manIconBlue, manIconGreen;
 
 let battleImages = {}; // Object to store battle images
 
@@ -62,12 +59,16 @@ function preload() {
   battleImages['Battle of Suomussalmi'] = loadImage('images/battle-image-Suomussalmi.jpg');
   battleImages['Battle of Raate Road'] = loadImage('images/battle-image-RaateRoad.jpg');
   battleImages['Battle of Kollaa'] = loadImage('images/battle-image-Kollaa.jpg');
+  battleImages['Battle of the Channel'] = loadImage('images/battle-image-Channel.jpg');
+  battleImages['Battle of London'] = loadImage('images/battle-image-London.jpg');
+  battleImages['Operation Eagle Kent'] = loadImage('images/battle-image-Kent.jpg');
+  battleImages['Operation Eagle Southampton'] = loadImage('images/battle-image-Southampton.jpg');
+  battleImages['Operation Eagle Plymouth'] = loadImage('images/battle-image-Plymouth.jpg');
   battleImages['The invasion of Poland'] = loadImage('images/battle-image-Poland.jpg');
   battleImages['The invasion of Denmark'] = loadImage('images/battle-image-Denmark.jpg');
   battleImages['The invasion of Norway'] = loadImage('images/battle-image-Norway.jpg');	
   battleImages['The invasion of Belgium'] = loadImage('images/battle-image-Belgium.jpg');
-  
-  
+
 }
 
 function setup() {
@@ -733,7 +734,7 @@ function drawDeathScreen() {
   fill(255);
   textSize(20);
   textAlign(CENTER, TOP);
-  text('Click and Scroll to see more', boxWidth / 2, 20);
+  text('Click and scroll to see more', boxWidth / 2, 20);
 
   // Restore the drawing context
   ctx.restore();
@@ -1106,6 +1107,110 @@ function defineDataPoints() {
     battleName: 'Battle of Le Havre'
   });
 
+  // Battle of England (July - october 1940)
+
+  // Battle of the Channel (july 1940)
+  dataPoints[10].push({
+    x: 725, 
+    y: 870,
+    civilians: 0, // total
+    allied: 250, // total
+    axis: 600, // total
+    location: 'The Channel',
+    date: '10 July - 12 August 1940',
+    winner: 'Axis',
+    summary: 'The Battle of the Channel marked the beginning of the air war against England. Germany aimed to weaken British shipping and ports, leading to intense air battles as a prelude to the broader Battle of Britain.',
+    battleName: 'Battle of the Channel'
+  });
+
+  // Battle of the Channel (august 1940)
+  dataPoints[11].push({
+    x: 725, 
+    y: 870,
+    civilians: 0, // total 43000, dit aantal moet worden onder verdeeld over alle dots van de battle of engeland
+    allied: 250, // total 1542
+    axis: 600, // total 3510
+    location: 'The Channel',
+    date: '10 July - 12 August 1940',
+    winner: 'Axis', // moet voor alles nog worden uitgezocht
+    summary: 'The Battle of the Channel marked the beginning of the air war against England. Germany aimed to weaken British shipping and ports, leading to intense air battles as a prelude to the broader Battle of Britain.',
+    battleName: 'Battle of the Channel'
+  });
+
+  // Operation Eagle (august 1940)
+
+  // Operation Eagle Plymouth
+  dataPoints[11].push({
+    x: 630, 
+    y: 875,
+    civilians: 1400,
+    allied: 120,
+    axis: 580,
+    location: 'Plymouth, England',
+    date: '13-18 August 1940',
+    winner: 'Axis',
+    summary: 'Operation Eagle’s airstrikes targeted Plymouth, a key British naval base, aiming to cripple naval and industrial capabilities. Intense German bombing caused significant destruction and civilian casualties, but failed to weaken Britain’s resolve or achieve decisive strategic advantages.', 
+    battleName: 'Operation Eagle Plymouth'
+  });
+
+   // Operation Eagle Southampton
+   dataPoints[11].push({
+    x: 670, 
+    y: 865,
+    civilians: 1500,
+    allied: 150,
+    axis: 600,
+    location: 'Southampton, England',
+    date: '13-18 August 1940',
+    winner: 'Axis',
+    summary: 'During Operation Eagle, Southampton was heavily bombed by the Luftwaffe as part of Germany’s effort to destroy British infrastructure and morale. The attacks caused significant civilian casualties, extensive damage to the city, and marked a key phase in the Blitz.',
+    battleName: 'Operation Eagle Southampton'
+  });
+
+   // Operation Eagle Kent
+   dataPoints[11].push({
+    x: 715, 
+    y: 865,
+    civilians: 2000,
+    allied: 250,
+    axis: 700,
+    location: 'Kent, England',
+    date: '13-18 August 1940',
+    winner: 'Axis',
+    summary: 'During World War II, airfields in Kent were heavily bombed by the German Luftwaffe. These air raids targeted strategic sites, including RAF Manston and RAF Lympne, in support of the air war against Great Britain.', 
+    battleName: 'Operation Eagle Kent'
+  });
+
+  // Bombardementen London
+  dataPoints[11].push({
+    x: 688, 
+    y: 850,
+    civilians: 3000,
+    allied: 200,
+    axis: 150,
+    location: 'London, England',
+    date: '24 August - 30 september 1940',
+    winner: 'Axis',
+    summary: 'In 1940, London was heavily bombed by the German Luftwaffe, with targets including industrial areas, airfields, and military installations. These attacks, part of the Blitz, caused significant damage and civilian casualties as the city prepared for further raids.',
+    battleName: 'Battle of London'
+  });
+
+  // Bombardementen London
+  dataPoints[12].push({
+    x: 688, 
+    y: 850,
+    civilians: 3000,
+    allied: 200,
+    axis: 150,
+    location: 'London, England',
+    date: '24 August - 30 september 1940',
+    winner: 'Axis',
+    summary: 'In 1940, London was heavily bombed by the German Luftwaffe, with targets including industrial areas, airfields, and military installations. These attacks, part of the Blitz, caused significant damage and civilian casualties as the city prepared for further raids.',
+    battleName: 'Battle of London'
+  });
+
+  
+
   // Compute minDeaths and maxDeaths
   let minDeaths = Infinity;
   let maxDeaths = -Infinity;
@@ -1134,7 +1239,7 @@ function defineDataPoints() {
   }
 
   // Define min and max glow radius
-  let minRadius = 5;
+  let minRadius = 8;
   let maxRadius = 30;
 
   // Update glowRadius based on deaths for each battle
