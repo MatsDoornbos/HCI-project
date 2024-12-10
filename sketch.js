@@ -62,10 +62,16 @@ function preload() {
   battleImages['Battle of the Channel'] = loadImage('images/battle-image-Channel.jpg');
   battleImages['Battle of London'] = loadImage('images/battle-image-London.jpg');
   battleImages['Battle of Crete'] = loadImage('images/battle-image-Crete.jpg');
+  battleImages['Battle of Stalingrad'] = loadImage('images/battle-image-Stalingrad.jpg');
+  battleImages['Battle of Kursk'] = loadImage('images/battle-image-Kursk.jpg');
+  battleImages['Battle of Normandy'] = loadImage('images/battle-image-Normandy.jpg');
+  battleImages['Battle of the Bulge'] = loadImage('images/battle-image-Bulge.jpg');
+  battleImages['Battle of Berlin'] = loadImage('images/battle-image-Berlin.jpg');
   battleImages['Operation Eagle Kent'] = loadImage('images/battle-image-Kent.jpg');
   battleImages['Operation Eagle Southampton'] = loadImage('images/battle-image-Southampton.jpg');
   battleImages['Operation Eagle Plymouth'] = loadImage('images/battle-image-Plymouth.jpg');
   battleImages['Operation Barbarossa'] = loadImage('images/battle-image-Barbarossa.jpg');
+  battleImages['Operation Market Garden'] = loadImage('images/battle-image-MarketGarden.jpg');
   battleImages['The invasion of Poland'] = loadImage('images/battle-image-Poland.jpg');
   battleImages['The invasion of Denmark'] = loadImage('images/battle-image-Denmark.jpg');
   battleImages['The invasion of Norway'] = loadImage('images/battle-image-Norway.jpg');	
@@ -1291,7 +1297,7 @@ function defineDataPoints() {
     summary: 'The Italian invasion of Greece, launched on 28 October 1940, aimed for a swift conquest but met fierce Greek resistance. The Greeks counterattacked, pushing Italian forces back into Albania. After multiple failed offensives, Germany intervened in April 1941, launching a combined invasion through Bulgaria.',
     battleName: 'The invasion of Greece'
   });
-  // Italian invasion of Greece april
+  // Italian invasion of Greece april 1941
   dataPoints[19].push({
     x: 1120,
     y: 1140,
@@ -1333,7 +1339,7 @@ function defineDataPoints() {
     battleName: 'Battle of Crete'
   });
   // Battle of Crete june 1941
-  dataPoints[20].push({
+  dataPoints[21].push({
     x: 1200,
     y: 1250,
     civilians: 15000,
@@ -1348,7 +1354,7 @@ function defineDataPoints() {
 
   // Operation Barbarossa june 1941
   // Battle 1: Battle of Białystok-Minsk
-  dataPoints[20].push({
+  dataPoints[21].push({
     x: 1238,
     y: 785,
     civilians: 50000,
@@ -1362,19 +1368,6 @@ function defineDataPoints() {
   });
 
   // Battle 2: Battle of Smolensk july 1941
-  dataPoints[21].push({
-    x: 1350,
-    y: 770,
-    civilians: 60000,
-    allied: 500000,
-    axis: 40000,
-    location: 'Smolensk, Soviet Union',
-    date: '10 July 1941 - 10 September 1941',
-    winner: 'Axis',
-    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
-    battleName: 'Operation Barbarossa'
-  });
-  // Battle 2: Battle of Smolensk august 1941
   dataPoints[22].push({
     x: 1350,
     y: 770,
@@ -1387,8 +1380,21 @@ function defineDataPoints() {
     summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
     battleName: 'Operation Barbarossa'
   });
-  // Battle 2: Battle of Smolensk september 1941
+  // Battle 2: Battle of Smolensk august 1941
   dataPoints[23].push({
+    x: 1350,
+    y: 770,
+    civilians: 60000,
+    allied: 500000,
+    axis: 40000,
+    location: 'Smolensk, Soviet Union',
+    date: '10 July 1941 - 10 September 1941',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 2: Battle of Smolensk september 1941
+  dataPoints[24].push({
     x: 1350,
     y: 770,
     civilians: 60000,
@@ -1402,19 +1408,6 @@ function defineDataPoints() {
   });
 
   // Battle 3: Battle of Kiev july 1941
-  dataPoints[21].push({
-    x: 1320,
-    y: 885,
-    civilians: 80000,
-    allied: 660000,
-    axis: 35000,
-    location: 'Kiev, Soviet Union',
-    date: '7 July 1941 - 26 September 1941',
-    winner: 'Axis',
-    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
-    battleName: 'Operation Barbarossa'
-  });
-  // Battle 3: Battle of Kiev august 1941
   dataPoints[22].push({
     x: 1320,
     y: 885,
@@ -1427,8 +1420,21 @@ function defineDataPoints() {
     summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
     battleName: 'Operation Barbarossa'
   });
-  // Battle 3: Battle of Kiev september 1941
+  // Battle 3: Battle of Kiev august 1941
   dataPoints[23].push({
+    x: 1320,
+    y: 885,
+    civilians: 80000,
+    allied: 660000,
+    axis: 35000,
+    location: 'Kiev, Soviet Union',
+    date: '7 July 1941 - 26 September 1941',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 3: Battle of Kiev september 1941
+  dataPoints[24].push({
     x: 1320,
     y: 885,
     civilians: 80000,
@@ -1442,7 +1448,7 @@ function defineDataPoints() {
   });
 
   // Battle 4: Battle of Vyazma september 1941
-  dataPoints[23].push({
+  dataPoints[24].push({
     x: 1400,
     y: 750,
     civilians: 40000,
@@ -1455,7 +1461,7 @@ function defineDataPoints() {
     battleName: 'Operation Barbarossa'
   });
   // Battle 4: Battle of Vyazma october 1941
-  dataPoints[24].push({
+  dataPoints[25].push({
     x: 1400,
     y: 750,
     civilians: 40000,
@@ -1469,19 +1475,6 @@ function defineDataPoints() {
   });
   
   // Battle 5: Battle of Moscow october 1941
-  dataPoints[24].push({
-    x: 1440,
-    y: 735,
-    civilians: 100000,
-    allied: 500000,
-    axis: 250000,
-    location: 'Moscow, Soviet Union',
-    date: '5 October 1941 - 7 December 1941',
-    winner: 'Soviet Union', // of allies?
-    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
-    battleName: 'Operation Barbarossa'
-  });
-  // Battle 5: Battle of Moscow november 1941
   dataPoints[25].push({
     x: 1440,
     y: 735,
@@ -1494,8 +1487,21 @@ function defineDataPoints() {
     summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
     battleName: 'Operation Barbarossa'
   });
-  // Battle 5: Battle of Moscow december 1941
+  // Battle 5: Battle of Moscow november 1941
   dataPoints[26].push({
+    x: 1440,
+    y: 735,
+    civilians: 100000,
+    allied: 500000,
+    axis: 250000,
+    location: 'Moscow, Soviet Union',
+    date: '5 October 1941 - 7 December 1941',
+    winner: 'Soviet Union', // of allies?
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 5: Battle of Moscow december 1941
+  dataPoints[27].push({
     x: 1440,
     y: 735,
     civilians: 100000,
@@ -1509,7 +1515,7 @@ function defineDataPoints() {
   });
 
   // Battle 6: Battle of Tikhvin november 1941
-  dataPoints[25].push({
+  dataPoints[26].push({
     x: 1358,
     y: 665,
     civilians: 20000,
@@ -1522,7 +1528,7 @@ function defineDataPoints() {
     battleName: 'Operation Barbarossa'
   });
   // Battle 6: Battle of Tikhvin december 1941
-  dataPoints[26].push({
+  dataPoints[27].push({
     x: 1358,
     y: 665,
     civilians: 20000,
@@ -1562,6 +1568,405 @@ function defineDataPoints() {
     battleName: 'Operation Barbarossa'
   });
     
+  // Battle 8: Battle of Rzhev january 1942
+  dataPoints[28].push({
+    x: 1370,
+    y: 715,
+    civilians: 50000,
+    allied: 1300000,
+    axis: 600000,
+    location: 'Rzhev, Soviet Union',
+    date: '8 January 1942 - 31 March 1942',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 8: Battle of Rzhev february 1942
+  dataPoints[29].push({
+    x: 1370,
+    y: 715,
+    civilians: 50000,
+    allied: 1300000,
+    axis: 600000,
+    location: 'Rzhev, Soviet Union',
+    date: '8 January 1942 - 31 March 1942',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 8: Battle of Rzhev march 1942
+  dataPoints[30].push({
+    x: 1370,
+    y: 715,
+    civilians: 50000,
+    allied: 1300000,
+    axis: 600000,
+    location: 'Rzhev, Soviet Union',
+    date: '8 January 1942 - 31 March 1942',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+
+  // Battle 9: Battle of Sevastopol october 1941
+  dataPoints[25].push({
+    x: 1380,
+    y: 1022,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    location: 'Sevastopol, Soviet Union',
+    date: '30 October 1941 - 4 July 1942',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 9: Battle of Sevastopol november 1941
+  dataPoints[26].push({
+    x: 1380,
+    y: 1022,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    location: 'Sevastopol, Soviet Union',
+    date: '30 October 1941 - 4 July 1942',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 9: Battle of Sevastopol december 1941
+  dataPoints[27].push({
+    x: 1380,
+    y: 1022,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    location: 'Sevastopol, Soviet Union',
+    date: '30 October 1941 - 4 July 1942',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 9: Battle of Sevastopol january 1942
+  dataPoints[28].push({
+    x: 1380,
+    y: 1022,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    location: 'Sevastopol, Soviet Union',
+    date: '30 October 1941 - 4 July 1942',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 9: Battle of Sevastopol february 1942
+  dataPoints[29].push({
+    x: 1380,
+    y: 1022,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    location: 'Sevastopol, Soviet Union',
+    date: '30 October 1941 - 4 July 1942',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 9: Battle of Sevastopol march 1942
+  dataPoints[30].push({
+    x: 1380,
+    y: 1022,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    location: 'Sevastopol, Soviet Union',
+    date: '30 October 1941 - 4 July 1942',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 9: Battle of Sevastopol april 1942
+  dataPoints[31].push({
+    x: 1380,
+    y: 1022,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    location: 'Sevastopol, Soviet Union',
+    date: '30 October 1941 - 4 July 1942',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 9: Battle of Sevastopol may 1942
+  dataPoints[32].push({
+    x: 1380,
+    y: 1022,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    location: 'Sevastopol, Soviet Union',
+    date: '30 October 1941 - 4 July 1942',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 9: Battle of Sevastopol june 1942
+  dataPoints[33].push({
+    x: 1380,
+    y: 1022,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    location: 'Sevastopol, Soviet Union',
+    date: '30 October 1941 - 4 July 1942',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+  // Battle 9: Battle of Sevastopol july 1942
+  dataPoints[34].push({
+    x: 1380,
+    y: 1022,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    location: 'Sevastopol, Soviet Union',
+    date: '30 October 1941 - 4 July 1942',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  });
+
+
+  // Battle of Stalingrad August 1942
+  dataPoints[35].push({
+    x: 1590,
+    y: 922,
+    civilians: 400000,
+    allied: 1120000,
+    axis: 850000,
+    location: 'Stalingrad, Soviet Union',
+    date: '23 August 1942 - 2 February 1943',
+    winner: 'Allies',
+    summary: 'The decisive battle of the Eastern Front where Soviet forces encircled and destroyed the German 6th Army, marking a turning point in the war.',
+    battleName: 'Battle of Stalingrad'
+  });
+  // Battle of Stalingrad August 1942
+  dataPoints[36].push({
+    x: 1590,
+    y: 922,
+    civilians: 400000,
+    allied: 1120000,
+    axis: 850000,
+    location: 'Stalingrad, Soviet Union',
+    date: '23 August 1942 - 2 February 1943',
+    winner: 'Allies',
+    summary: 'The decisive battle of the Eastern Front where Soviet forces encircled and destroyed the German 6th Army, marking a turning point in the war.',
+    battleName: 'Battle of Stalingrad'
+  });
+  // Battle of Stalingrad August 1942
+  dataPoints[37].push({
+    x: 1590,
+    y: 922,
+    civilians: 400000,
+    allied: 1120000,
+    axis: 850000,
+    location: 'Stalingrad, Soviet Union',
+    date: '23 August 1942 - 2 February 1943',
+    winner: 'Allies',
+    summary: 'The decisive battle of the Eastern Front where Soviet forces encircled and destroyed the German 6th Army, marking a turning point in the war.',
+    battleName: 'Battle of Stalingrad'
+  });
+  // Battle of Stalingrad August 1942
+  dataPoints[38].push({
+    x: 1590,
+    y: 922,
+    civilians: 400000,
+    allied: 1120000,
+    axis: 850000,
+    location: 'Stalingrad, Soviet Union',
+    date: '23 August 1942 - 2 February 1943',
+    winner: 'Allies',
+    summary: 'The decisive battle of the Eastern Front where Soviet forces encircled and destroyed the German 6th Army, marking a turning point in the war.',
+    battleName: 'Battle of Stalingrad'
+  });
+  // Battle of Stalingrad August 1942
+  dataPoints[39].push({
+    x: 1590,
+    y: 922,
+    civilians: 400000,
+    allied: 1120000,
+    axis: 850000,
+    location: 'Stalingrad, Soviet Union',
+    date: '23 August 1942 - 2 February 1943',
+    winner: 'Allies',
+    summary: 'The decisive battle of the Eastern Front where Soviet forces encircled and destroyed the German 6th Army, marking a turning point in the war.',
+    battleName: 'Battle of Stalingrad'
+  });
+  // Battle of Stalingrad August 1942
+  dataPoints[40].push({
+    x: 1590,
+    y: 922,
+    civilians: 400000,
+    allied: 1120000,
+    axis: 850000,
+    location: 'Stalingrad, Soviet Union',
+    date: '23 August 1942 - 2 February 1943',
+    winner: 'Allies',
+    summary: 'The decisive battle of the Eastern Front where Soviet forces encircled and destroyed the German 6th Army, marking a turning point in the war.',
+    battleName: 'Battle of Stalingrad'
+  });
+  // Battle of Stalingrad August 1942
+  dataPoints[41].push({
+    x: 1590,
+    y: 922,
+    civilians: 400000,
+    allied: 1120000,
+    axis: 850000,
+    location: 'Stalingrad, Soviet Union',
+    date: '23 August 1942 - 2 February 1943',
+    winner: 'Allies',
+    summary: 'The decisive battle of the Eastern Front where Soviet forces encircled and destroyed the German 6th Army, marking a turning point in the war.',
+    battleName: 'Battle of Stalingrad'
+  });
+
+  // Battle of Kursk july 1943
+  dataPoints[46].push({
+    x: 1430,
+    y: 822,
+    civilians: 70000,
+    allied: 1200000,
+    axis: 900000,
+    location: 'Kursk, Soviet Union',
+    date: '5 July 1943 - 23 August 1943',
+    winner: 'Allies',
+    summary: 'The Battle of Kursk was the largest tank battle in history, where Soviet forces decisively halted the final major German offensive on the Eastern Front. This victory marked a significant turning point in World War II, as it weakened the German offensive capabilities.',
+    battleName: 'Battle of Kursk'
+  });
+  // Battle of Kursk august 1943
+  dataPoints[47].push({
+    x: 1430,
+    y: 822,
+    civilians: 70000,
+    allied: 1200000,
+    axis: 900000,
+    location: 'Kursk, Soviet Union',
+    date: '5 July 1943 - 23 August 1943',
+    winner: 'Allies',
+    summary: 'The Battle of Kursk was the largest tank battle in history, where Soviet forces decisively halted the final major German offensive on the Eastern Front. This victory marked a significant turning point in World War II, as it weakened the German offensive capabilities.',
+    battleName: 'Battle of Kursk'
+  });
+
+  // D-Day / Battle of Normandy june 1944
+  dataPoints[57].push({
+    x: 705, 
+    y: 915,
+    civilians: 20000,
+    allied: 225000,
+    axis: 400000,
+    location: 'Normandy, France',
+    date: '6 June 1944 - 25 August 1944',
+    winner: 'Allies',
+    summary: 'D-Day was the largest amphibious invasion in history, where Allied forces stormed the beaches of Normandy. It marked the beginning of the liberation of Western Europe from Nazi occupation, setting the stage for the eventual defeat of Nazi Germany in World War II.',
+    battleName: 'Battle of Normandy'
+  });
+  // D-Day / Battle of Normandy july 1944
+  dataPoints[57].push({
+    x: 705, 
+    y: 915,
+    civilians: 20000,
+    allied: 225000,
+    axis: 400000,
+    location: 'Normandy, France',
+    date: '6 June 1944 - 25 August 1944',
+    winner: 'Allies',
+    summary: 'D-Day was the largest amphibious invasion in history, where Allied forces stormed the beaches of Normandy. It marked the beginning of the liberation of Western Europe from Nazi occupation, setting the stage for the eventual defeat of Nazi Germany in World War II.',
+    battleName: 'Battle of Normandy'
+  });
+  // D-Day / Battle of Normandy august 1944
+  dataPoints[57].push({
+    x: 705, 
+    y: 915,
+    civilians: 20000,
+    allied: 225000,
+    axis: 400000,
+    location: 'Normandy, France',
+    date: '6 June 1944 - 25 August 1944',
+    winner: 'Allies',
+    summary: 'D-Day was the largest amphibious invasion in history, where Allied forces stormed the beaches of Normandy. It marked the beginning of the liberation of Western Europe from Nazi occupation, setting the stage for the eventual defeat of Nazi Germany in World War II.',
+    battleName: 'Battle of Normandy'
+  });
+
+  // Operation Market Garden September 1944
+  dataPoints[58].push({
+    x: 815, 
+    y: 836,
+    civilians: 10000,
+    allied: 17000,
+    axis: 13000,
+    location: 'The Netherlands',
+    date: '17 - 25 September 1944',
+    winner: 'Axis',
+    summary: 'An ambitious Allied operation aimed to capture key bridges at Arnhem, Nijmegen, and Eindhoven to bypass German defenses and advance into Germany. Despite initial successes, the operation failed, leading to heavy casualties and the eventual retreat of Allied forces.',
+    battleName: 'Operation Market Garden'
+  });
+
+  // Battle of the Bulge december 1944 
+  dataPoints[61].push({
+    x: 785, 
+    y: 885,
+    civilians: 3000,
+    allied: 90000,
+    axis: 100000,
+    location: 'Ardennes, Belgium',
+    date: '16 December 1944 - 25 January 1945',
+    winner: 'Allies',
+    summary: 'The last major German offensive of the war. It aimed to split Allied forces in two, but it ultimately failed as reinforcements arrived.',
+    battleName: 'Battle of the Bulge'
+  });
+  // Battle of the Bulge january 1945
+  dataPoints[62].push({
+    x: 785, 
+    y: 885,
+    civilians: 3000,
+    allied: 90000,
+    axis: 100000,
+    location: 'Ardennes, Belgium',
+    date: '16 December 1944 - 25 January 1945',
+    winner: 'Allies',
+    summary: 'The last major German offensive of the war. It aimed to split Allied forces in two, but it ultimately failed as reinforcements arrived.',
+    battleName: 'Battle of the Bulge'
+  });
+
+  // Battle of Berlin april 1945
+  dataPoints[66].push({
+    x: 965,
+    y: 825,
+    civilians: 125000,
+    allied: 200000,
+    axis: 100000,
+    location: 'Berlin, Germany',
+    date: '16 April 1945 - 2 May 1945',
+    winner: 'Allies',
+    summary: 'The Battle of Berlin was the final major battle of World War II in Europe. Soviet forces launched a massive assault on the city, leading to its capture. The fall of Berlin marked the collapse of the Third Reich, and Adolf Hitler committed suicide on April 30, 1945.',
+    battleName: 'Battle of Berlin'
+  });
+    // Battle of Berlin april 1945
+    dataPoints[67].push({
+      x: 965, 
+      y: 825,
+      civilians: 125000,
+      allied: 200000,
+      axis: 100000,
+      location: 'Berlin, Germany',
+      date: '16 April 1945 - 2 May 1945',
+      winner: 'Allies',
+      summary: 'The Battle of Berlin was the final major battle of World War II in Europe. Soviet forces launched a massive assault on the city, leading to its capture. The fall of Berlin marked the collapse of the Third Reich, and Adolf Hitler committed suicide on April 30, 1945.',
+      battleName: 'Battle of Berlin'
+    });
+
   
 
   // Compute minDeaths and maxDeaths
