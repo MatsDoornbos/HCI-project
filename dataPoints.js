@@ -1714,3 +1714,183 @@ dataPoints[41].push({
   }
 });
  
+// Battle 11: Battle of Kursk juli 1943
+dataPoints[46].push({
+  x: 1430,
+  y: 822,
+  civilians: 70000,
+  allied: 1200000,
+  axis: 900000,
+  en: {
+    location: 'Kursk, Soviet Union',
+    date: '5 July 1943 - 23 August 1943',
+    winner: 'Allies',
+    summary: 'The Battle of Kursk was the largest tank battle in history, where Soviet forces decisively halted the final major German offensive on the Eastern Front. This victory marked a significant turning point in World War II, as it weakened the German offensive capabilities.',
+    battleName: 'Battle of Kursk'
+  },
+  nl: {
+    location: 'Koersk, Sovjet-Unie',
+    date: '5 juli 1943 - 23 augustus 1943',
+    winner: 'Geallieerden',
+    summary: 'De Slag bij Koersk was de grootste tankslag in de geschiedenis, waarbij Sovjettroepen de laatste grote Duitse offensieve aanval aan het oostfront beslissend wisten te stoppen. Deze overwinning markeerde een belangrijk keerpunt in de Tweede Wereldoorlog, aangezien het de Duitse offensieve capaciteiten verzwakte.',
+    battleName: 'Slag bij Koersk'
+  }
+});
+// Battle 11: Battle of Kursk August 1943
+dataPoints[47].push({
+  x: 1430,
+  y: 822,
+  civilians: 70000,
+  allied: 1200000,
+  axis: 900000,
+  en: {
+    location: 'Kursk, Soviet Union',
+    date: '5 July 1943 - 23 August 1943',
+    winner: 'Allies',
+    summary: 'The Battle of Kursk was the largest tank battle in history, where Soviet forces decisively halted the final major German offensive on the Eastern Front. This victory marked a significant turning point in World War II, as it weakened the German offensive capabilities.',
+    battleName: 'Battle of Kursk'
+  },
+  nl: {
+    location: 'Koersk, Sovjet-Unie',
+    date: '5 juli 1943 - 23 augustus 1943',
+    winner: 'Geallieerden',
+    summary: 'De Slag bij Koersk was de grootste tankslag in de geschiedenis, waarbij Sovjettroepen de laatste grote Duitse offensieve aanval aan het oostfront beslissend wisten te stoppen. Deze overwinning markeerde een belangrijk keerpunt in de Tweede Wereldoorlog, aangezien het de Duitse offensieve capaciteiten verzwakte.',
+    battleName: 'Slag bij Koersk'
+  }
+});
+
+// Battle 12: D-Day / Battle of Normandy June 1944
+dataPoints[57].push({
+  x: 705,
+  y: 915,
+  civilians: 20000,
+  allied: 225000,
+  axis: 400000,
+  en: {
+    location: 'Normandy, France',
+    date: '6 June 1944 - 25 August 1944',
+    winner: 'Allies',
+    summary: 'D-Day was the largest amphibious invasion in history, where Allied forces stormed the beaches of Normandy. It marked the beginning of the liberation of Western Europe from Nazi occupation, setting the stage for the eventual defeat of Nazi Germany in World War II.',
+    battleName: 'Battle of Normandy'
+  },
+  nl: {
+    location: 'Normandië, Frankrijk',
+    date: '6 juni 1944 - 25 augustus 1944',
+    winner: 'Geallieerden',
+    summary: 'D-Day was de grootste amfibische invasie in de geschiedenis, waarbij geallieerde troepen de stranden van Normandië bestormden. Het markeerde het begin van de bevrijding van West-Europa van de nazi-bezetting en vormde de opmaat naar de uiteindelijke nederlaag van nazi-Duitsland in de Tweede Wereldoorlog.',
+    battleName: 'Slag om Normandië'
+  }
+});
+// Battle 12: D-Day / Battle of Normandy juli 1944
+dataPoints[58].push({
+  x: 705,
+  y: 915,
+  civilians: 20000,
+  allied: 225000,
+  axis: 400000,
+  en: {
+    location: 'Normandy, France',
+    date: '6 June 1944 - 25 August 1944',
+    winner: 'Allies',
+    summary: 'D-Day was the largest amphibious invasion in history, where Allied forces stormed the beaches of Normandy. It marked the beginning of the liberation of Western Europe from Nazi occupation, setting the stage for the eventual defeat of Nazi Germany in World War II.',
+    battleName: 'Battle of Normandy'
+  },
+  nl: {
+    location: 'Normandië, Frankrijk',
+    date: '6 juni 1944 - 25 augustus 1944',
+    winner: 'Geallieerden',
+    summary: 'D-Day was de grootste amfibische invasie in de geschiedenis, waarbij geallieerde troepen de stranden van Normandië bestormden. Het markeerde het begin van de bevrijding van West-Europa van de nazi-bezetting en vormde de opmaat naar de uiteindelijke nederlaag van nazi-Duitsland in de Tweede Wereldoorlog.',
+    battleName: 'Slag om Normandië'
+  }
+});
+// Battle 12: D-Day / Battle of Normandy august 1944
+dataPoints[59].push({
+  x: 705,
+  y: 915,
+  civilians: 20000,
+  allied: 225000,
+  axis: 400000,
+  en: {
+    location: 'Normandy, France',
+    date: '6 June 1944 - 25 August 1944',
+    winner: 'Allies',
+    summary: 'D-Day was the largest amphibious invasion in history, where Allied forces stormed the beaches of Normandy. It marked the beginning of the liberation of Western Europe from Nazi occupation, setting the stage for the eventual defeat of Nazi Germany in World War II.',
+    battleName: 'Battle of Normandy'
+  },
+  nl: {
+    location: 'Normandië, Frankrijk',
+    date: '6 juni 1944 - 25 augustus 1944',
+    winner: 'Geallieerden',
+    summary: 'D-Day was de grootste amfibische invasie in de geschiedenis, waarbij geallieerde troepen de stranden van Normandië bestormden. Het markeerde het begin van de bevrijding van West-Europa van de nazi-bezetting en vormde de opmaat naar de uiteindelijke nederlaag van nazi-Duitsland in de Tweede Wereldoorlog.',
+    battleName: 'Slag om Normandië'
+  }
+});
+
+// Operation Market Garden September 1944
+dataPoints[58].push({
+  x: 815,
+  y: 836,
+  civilians: 10000,
+  allied: 17000,
+  axis: 13000,
+  en: {
+    location: 'The Netherlands',
+    date: '17 - 25 September 1944',
+    winner: 'Axis',
+    summary: 'An ambitious Allied operation aimed to capture key bridges at Arnhem, Nijmegen, and Eindhoven to bypass German defenses and advance into Germany. Despite initial successes, the operation failed, leading to heavy casualties and the eventual retreat of Allied forces.',
+    battleName: 'Operation Market Garden'
+  },
+  nl: {
+    location: 'Nederland',
+    date: '17 - 25 september 1944',
+    winner: 'Asmogendheden',
+    summary: 'Een ambitieuze geallieerde operatie met als doel belangrijke bruggen bij Arnhem, Nijmegen en Eindhoven te veroveren om de Duitse verdediging te omzeilen en door te stoten naar Duitsland. Ondanks aanvankelijke successen mislukte de operatie, wat leidde tot zware verliezen en de uiteindelijke terugtrekking van de geallieerde troepen.',
+    battleName: 'Operatie Market Garden'
+  }
+});
+
+// Battle of the Bulge December 1944
+dataPoints[61].push({
+  x: 785,
+  y: 885,
+  civilians: 3000,
+  allied: 90000,
+  axis: 100000,
+  en: {
+    location: 'Ardennes, Belgium',
+    date: '16 December 1944 - 25 January 1945',
+    winner: 'Allies',
+    summary: 'The last major German offensive of the war. It aimed to split Allied forces in two, but it ultimately failed as reinforcements arrived.',
+    battleName: 'Battle of the Bulge'
+  },
+  nl: {
+    location: 'Ardennen, België',
+    date: '16 december 1944 - 25 januari 1945',
+    winner: 'Geallieerden',
+    summary: 'Het laatste grote Duitse offensief van de oorlog. Het had tot doel de geallieerde troepen in tweeën te splitsen, maar het mislukte uiteindelijk toen versterkingen arriveerden.',
+    battleName: 'Slag om de Ardennen'
+  }
+});
+
+// Battle of the Bulge januari 1945
+dataPoints[61].push({
+  x: 785,
+  y: 885,
+  civilians: 3000,
+  allied: 90000,
+  axis: 100000,
+  en: {
+    location: 'Ardennes, Belgium',
+    date: '16 December 1944 - 25 January 1945',
+    winner: 'Allies',
+    summary: 'The last major German offensive of the war. It aimed to split Allied forces in two, but it ultimately failed as reinforcements arrived.',
+    battleName: 'Battle of the Bulge'
+  },
+  nl: {
+    location: 'Ardennen, België',
+    date: '16 december 1944 - 25 januari 1945',
+    winner: 'Geallieerden',
+    summary: 'Het laatste grote Duitse offensief van de oorlog. Het had tot doel de geallieerde troepen in tweeën te splitsen, maar het mislukte uiteindelijk toen versterkingen arriveerden.',
+    battleName: 'Slag om de Ardennen'
+  }
+});
