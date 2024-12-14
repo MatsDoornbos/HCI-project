@@ -1894,3 +1894,48 @@ dataPoints[61].push({
     battleName: 'Slag om de Ardennen'
   }
 });
+
+// Battle 15: Battle of Berlin April 1945
+dataPoints[66].push({
+  x: 965,
+  y: 825,
+  civilians: 125000,
+  allied: 200000,
+  axis: 100000,
+  en: {
+    location: 'Berlin, Germany',
+    date: '16 April 1945 - 2 May 1945',
+    winner: 'Allies',
+    summary: 'The Battle of Berlin was the final major battle of World War II in Europe. Soviet forces launched a massive assault on the city, leading to its capture. The fall of Berlin marked the collapse of the Third Reich, and Adolf Hitler committed suicide on April 30, 1945.',
+    battleName: 'Battle of Berlin'
+  },
+  nl: {
+    location: 'Berlijn, Duitsland',
+    date: '16 april 1945 - 2 mei 1945',
+    winner: 'Geallieerden',
+    summary: 'De Slag om Berlijn was de laatste grote slag van de Tweede Wereldoorlog in Europa. Sovjettroepen lanceerden een grootschalig offensief op de stad, wat leidde tot de inname ervan. De val van Berlijn betekende de ineenstorting van het Derde Rijk, en Adolf Hitler pleegde zelfmoord op 30 april 1945.',
+    battleName: 'Slag om Berlijn'
+  }
+});
+// Battle of Berlin may 1945
+dataPoints[67].push({
+  x: 965,
+  y: 825,
+  civilians: 125000,
+  allied: 200000,
+  axis: 100000,
+  en: {
+    location: 'Berlin, Germany',
+    date: '16 April 1945 - 2 May 1945',
+    winner: 'Allies',
+    summary: 'The Battle of Berlin was the final major battle of World War II in Europe. Soviet forces launched a massive assault on the city, leading to its capture. The fall of Berlin marked the collapse of the Third Reich, and Adolf Hitler committed suicide on April 30, 1945.',
+    battleName: 'Battle of Berlin'
+  },
+  nl: {
+    location: 'Berlijn, Duitsland',
+    date: '16 april 1945 - 2 mei 1945',
+    winner: 'Geallieerden',
+    summary: 'De Slag om Berlijn was de laatste grote slag van de Tweede Wereldoorlog in Europa. Sovjettroepen lanceerden een grootschalig offensief op de stad, wat leidde tot de inname ervan. De val van Berlijn betekende de ineenstorting van het Derde Rijk, en Adolf Hitler pleegde zelfmoord op 30 april 1945.',
+    battleName: 'Slag om Berlijn'
+  }
+});
