@@ -1226,7 +1226,7 @@ dataPoints[26].push({
   });
   
   
-  // Battle 7: Battle of Rostov november
+  // Battle 7: Battle of Rostov november 1941
   dataPoints[26].push({
     x: 1470,
     y: 985,
@@ -1248,7 +1248,6 @@ dataPoints[26].push({
       battleName: 'Operatie Barbarossa'
     }
   });
-
   // Battle 7: Battle of Rostov December 1941
 dataPoints[27].push({
     x: 1510,
@@ -1271,3 +1270,447 @@ dataPoints[27].push({
       battleName: 'Operatie Barbarossa'
     }
   });
+
+  // Battle 8: Battle of Rzhev January 1942
+dataPoints[28].push({
+  x: 1370,
+  y: 715,
+  civilians: 50000,
+  allied: 1300000,
+  axis: 600000,
+  en: {
+    location: 'Rzhev, Soviet Union',
+    date: '8 January 1942 - 31 March 1942',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Bialystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  },
+  nl: {
+    location: 'Rzhev, Sovjet-Unie',
+    date: '8 januari 1942 - 31 maart 1942',
+    winner: 'Asmogendheden',
+    summary: 'Als onderdeel van Operatie Barbarossa vond er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Bialystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
+    battleName: 'Operatie Barbarossa'
+  }
+});
+ // Battle 8: Battle of Rzhev Februari 1942
+ dataPoints[29].push({
+  x: 1370,
+  y: 715,
+  civilians: 50000,
+  allied: 1300000,
+  axis: 600000,
+  en: {
+    location: 'Rzhev, Soviet Union',
+    date: '8 January 1942 - 31 March 1942',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Bialystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  },
+  nl: {
+    location: 'Rzhev, Sovjet-Unie',
+    date: '8 januari 1942 - 31 maart 1942',
+    winner: 'Asmogendheden',
+    summary: 'Als onderdeel van Operatie Barbarossa vond er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Bialystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
+    battleName: 'Operatie Barbarossa'
+  }
+});
+// Battle 8: Battle of Rzhev March 1942
+dataPoints[30].push({
+  x: 1370,
+  y: 715,
+  civilians: 50000,
+  allied: 1300000,
+  axis: 600000,
+  en: {
+    location: 'Rzhev, Soviet Union',
+    date: '8 January 1942 - 31 March 1942',
+    winner: 'Axis',
+    summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Bialystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+    battleName: 'Operation Barbarossa'
+  },
+  nl: {
+    location: 'Rzhev, Sovjet-Unie',
+    date: '8 januari 1942 - 31 maart 1942',
+    winner: 'Asmogendheden',
+    summary: 'Als onderdeel van Operatie Barbarossa vond er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Bialystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
+    battleName: 'Operatie Barbarossa'
+  }
+});
+  
+  // Battle 9: Battle of Sevastopol october 1941
+  dataPoints[25].push({
+    x: 1380,
+    y: 1011,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    en: {
+      location: 'Sevastopol, Soviet Union',
+      date: '30 october 1941 - 4 July 1942',
+      winner: 'Axis',
+      summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Bialystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+      battleName: 'Operation Barbarossa'
+    },
+    nl: {
+      location: 'Sevastopol, Sovjet-Unie',
+      date: '30 oktober 1942 - 4 juli 1942',
+      winner: 'Asmogendheden',
+      summary: 'Als onderdeel van Operatie Barbarossa vond er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Bialystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
+      battleName: 'Operatie Barbarossa'
+    }
+  });
+  // Battle 9: Battle of Sevastopol november 1941
+  dataPoints[26].push({
+    x: 1380,
+    y: 1011,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    en: {
+      location: 'Sevastopol, Soviet Union',
+      date: '30 october 1941 - 4 July 1942',
+      winner: 'Axis',
+      summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Bialystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+      battleName: 'Operation Barbarossa'
+    },
+    nl: {
+      location: 'Sevastopol, Sovjet-Unie',
+      date: '30 oktober 1942 - 4 juli 1942',
+      winner: 'Asmogendheden',
+      summary: 'Als onderdeel van Operatie Barbarossa vond er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Bialystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
+      battleName: 'Operatie Barbarossa'
+    }
+  });
+  // Battle 9: Battle of Sevastopol december 1941
+  dataPoints[27].push({
+    x: 1380,
+    y: 1011,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    en: {
+      location: 'Sevastopol, Soviet Union',
+      date: '30 october 1941 - 4 July 1942',
+      winner: 'Axis',
+      summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Bialystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+      battleName: 'Operation Barbarossa'
+    },
+    nl: {
+      location: 'Sevastopol, Sovjet-Unie',
+      date: '30 oktober 1942 - 4 juli 1942',
+      winner: 'Asmogendheden',
+      summary: 'Als onderdeel van Operatie Barbarossa vond er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Bialystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
+      battleName: 'Operatie Barbarossa'
+    }
+  });
+  // Battle 9: Battle of Sevastopol januari 1941
+  dataPoints[28].push({
+    x: 1380,
+    y: 1011,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    en: {
+      location: 'Sevastopol, Soviet Union',
+      date: '30 october 1941 - 4 July 1942',
+      winner: 'Axis',
+      summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Bialystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+      battleName: 'Operation Barbarossa'
+    },
+    nl: {
+      location: 'Sevastopol, Sovjet-Unie',
+      date: '30 oktober 1942 - 4 juli 1942',
+      winner: 'Asmogendheden',
+      summary: 'Als onderdeel van Operatie Barbarossa vond er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Bialystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
+      battleName: 'Operatie Barbarossa'
+    }
+  });
+  // Battle 9: Battle of Sevastopol februari 1942
+  dataPoints[29].push({
+    x: 1380,
+    y: 1011,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    en: {
+      location: 'Sevastopol, Soviet Union',
+      date: '30 october 1941 - 4 July 1942',
+      winner: 'Axis',
+      summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Bialystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+      battleName: 'Operation Barbarossa'
+    },
+    nl: {
+      location: 'Sevastopol, Sovjet-Unie',
+      date: '30 oktober 1942 - 4 juli 1942',
+      winner: 'Asmogendheden',
+      summary: 'Als onderdeel van Operatie Barbarossa vond er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Bialystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
+      battleName: 'Operatie Barbarossa'
+    }
+  });
+  // Battle 9: Battle of Sevastopol maart 1942
+  dataPoints[30].push({
+    x: 1380,
+    y: 1011,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    en: {
+      location: 'Sevastopol, Soviet Union',
+      date: '30 october 1941 - 4 July 1942',
+      winner: 'Axis',
+      summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Bialystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+      battleName: 'Operation Barbarossa'
+    },
+    nl: {
+      location: 'Sevastopol, Sovjet-Unie',
+      date: '30 oktober 1942 - 4 juli 1942',
+      winner: 'Asmogendheden',
+      summary: 'Als onderdeel van Operatie Barbarossa vond er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Bialystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
+      battleName: 'Operatie Barbarossa'
+    }
+  });
+  // Battle 9: Battle of Sevastopol arpil 1942
+  dataPoints[31].push({
+    x: 1380,
+    y: 1011,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    en: {
+      location: 'Sevastopol, Soviet Union',
+      date: '30 october 1941 - 4 July 1942',
+      winner: 'Axis',
+      summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Bialystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+      battleName: 'Operation Barbarossa'
+    },
+    nl: {
+      location: 'Sevastopol, Sovjet-Unie',
+      date: '30 oktober 1942 - 4 juli 1942',
+      winner: 'Asmogendheden',
+      summary: 'Als onderdeel van Operatie Barbarossa vond er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Bialystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
+      battleName: 'Operatie Barbarossa'
+    }
+  });
+  // Battle 9: Battle of Sevastopol mei 1942
+  dataPoints[32].push({
+    x: 1380,
+    y: 1011,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    en: {
+      location: 'Sevastopol, Soviet Union',
+      date: '30 october 1941 - 4 July 1942',
+      winner: 'Axis',
+      summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Bialystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+      battleName: 'Operation Barbarossa'
+    },
+    nl: {
+      location: 'Sevastopol, Sovjet-Unie',
+      date: '30 oktober 1942 - 4 juli 1942',
+      winner: 'Asmogendheden',
+      summary: 'Als onderdeel van Operatie Barbarossa vond er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Bialystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
+      battleName: 'Operatie Barbarossa'
+    }
+  });
+  // Battle 9: Battle of Sevastopol juni 1942
+  dataPoints[33].push({
+    x: 1380,
+    y: 1011,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    en: {
+      location: 'Sevastopol, Soviet Union',
+      date: '30 october 1941 - 4 July 1942',
+      winner: 'Axis',
+      summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Bialystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+      battleName: 'Operation Barbarossa'
+    },
+    nl: {
+      location: 'Sevastopol, Sovjet-Unie',
+      date: '30 oktober 1942 - 4 juli 1942',
+      winner: 'Asmogendheden',
+      summary: 'Als onderdeel van Operatie Barbarossa vond er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Bialystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
+      battleName: 'Operatie Barbarossa'
+    }
+  });
+  // Battle 9: Battle of Sevastopol juli 1942
+  dataPoints[34].push({
+    x: 1380,
+    y: 1011,
+    civilians: 15000,
+    allied: 100000,
+    axis: 150000,
+    en: {
+      location: 'Sevastopol, Soviet Union',
+      date: '30 october 1941 - 4 July 1942',
+      winner: 'Axis',
+      summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Bialystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
+      battleName: 'Operation Barbarossa'
+    },
+    nl: {
+      location: 'Sevastopol, Sovjet-Unie',
+      date: '30 oktober 1942 - 4 juli 1942',
+      winner: 'Asmogendheden',
+      summary: 'Als onderdeel van Operatie Barbarossa vond er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Bialystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
+      battleName: 'Operatie Barbarossa'
+    }
+  });
+
+  // Battle 10: Battle of Stalingrad August 1942
+  dataPoints[35].push({
+    x: 1590,
+    y: 922,
+    civilians: 400000,
+    allied: 1120000,
+    axis: 850000,
+    en: {
+      location: 'Stalingrad, Soviet Union',
+      date: '23 August 1942 - 2 February 1943',
+      winner: 'Allies',
+      summary: 'The decisive battle of the Eastern Front where Soviet forces encircled and destroyed the German 6th Army, marking a turning point in the war.',
+      battleName: 'Battle of Stalingrad'
+    },
+    nl: {
+      location: 'Stalingrad, Sovjet-Unie',
+      date: '23 augustus 1942 - 2 februari 1943',
+      winner: 'Geallieerden',
+      summary: 'De beslissende slag aan het oostfront waarbij Sovjet-troepen het Duitse 6e leger omsingelden en vernietigden, wat een keerpunt in de oorlog markeerde.',
+      battleName: 'Slag om Stalingrad'
+    }
+});
+// Battle 10: Battle of Stalingrad September 1942
+dataPoints[36].push({
+  x: 1590,
+  y: 922,
+  civilians: 400000,
+  allied: 1120000,
+  axis: 850000,
+  en: {
+    location: 'Stalingrad, Soviet Union',
+    date: '23 August 1942 - 2 February 1943',
+    winner: 'Allies',
+    summary: 'The decisive battle of the Eastern Front where Soviet forces encircled and destroyed the German 6th Army, marking a turning point in the war.',
+    battleName: 'Battle of Stalingrad'
+  },
+  nl: {
+    location: 'Stalingrad, Sovjet-Unie',
+    date: '23 augustus 1942 - 2 februari 1943',
+    winner: 'Geallieerden',
+    summary: 'De beslissende slag aan het oostfront waarbij Sovjet-troepen het Duitse 6e leger omsingelden en vernietigden, wat een keerpunt in de oorlog markeerde.',
+    battleName: 'Slag om Stalingrad'
+  }
+});
+// Battle 10: Battle of Stalingrad oktober 1942
+dataPoints[37].push({
+  x: 1590,
+  y: 922,
+  civilians: 400000,
+  allied: 1120000,
+  axis: 850000,
+  en: {
+    location: 'Stalingrad, Soviet Union',
+    date: '23 August 1942 - 2 February 1943',
+    winner: 'Allies',
+    summary: 'The decisive battle of the Eastern Front where Soviet forces encircled and destroyed the German 6th Army, marking a turning point in the war.',
+    battleName: 'Battle of Stalingrad'
+  },
+  nl: {
+    location: 'Stalingrad, Sovjet-Unie',
+    date: '23 augustus 1942 - 2 februari 1943',
+    winner: 'Geallieerden',
+    summary: 'De beslissende slag aan het oostfront waarbij Sovjet-troepen het Duitse 6e leger omsingelden en vernietigden, wat een keerpunt in de oorlog markeerde.',
+    battleName: 'Slag om Stalingrad'
+  }
+});
+// Battle 10: Battle of Stalingrad november 1942
+dataPoints[38].push({
+  x: 1590,
+  y: 922,
+  civilians: 400000,
+  allied: 1120000,
+  axis: 850000,
+  en: {
+    location: 'Stalingrad, Soviet Union',
+    date: '23 August 1942 - 2 February 1943',
+    winner: 'Allies',
+    summary: 'The decisive battle of the Eastern Front where Soviet forces encircled and destroyed the German 6th Army, marking a turning point in the war.',
+    battleName: 'Battle of Stalingrad'
+  },
+  nl: {
+    location: 'Stalingrad, Sovjet-Unie',
+    date: '23 augustus 1942 - 2 februari 1943',
+    winner: 'Geallieerden',
+    summary: 'De beslissende slag aan het oostfront waarbij Sovjet-troepen het Duitse 6e leger omsingelden en vernietigden, wat een keerpunt in de oorlog markeerde.',
+    battleName: 'Slag om Stalingrad'
+  }
+});
+// Battle 10: Battle of Stalingrad december 1942
+dataPoints[39].push({
+  x: 1590,
+  y: 922,
+  civilians: 400000,
+  allied: 1120000,
+  axis: 850000,
+  en: {
+    location: 'Stalingrad, Soviet Union',
+    date: '23 August 1942 - 2 February 1943',
+    winner: 'Allies',
+    summary: 'The decisive battle of the Eastern Front where Soviet forces encircled and destroyed the German 6th Army, marking a turning point in the war.',
+    battleName: 'Battle of Stalingrad'
+  },
+  nl: {
+    location: 'Stalingrad, Sovjet-Unie',
+    date: '23 augustus 1942 - 2 februari 1943',
+    winner: 'Geallieerden',
+    summary: 'De beslissende slag aan het oostfront waarbij Sovjet-troepen het Duitse 6e leger omsingelden en vernietigden, wat een keerpunt in de oorlog markeerde.',
+    battleName: 'Slag om Stalingrad'
+  }
+});
+// Battle 10: Battle of Stalingrad januari 1943
+dataPoints[40].push({
+  x: 1590,
+  y: 922,
+  civilians: 400000,
+  allied: 1120000,
+  axis: 850000,
+  en: {
+    location: 'Stalingrad, Soviet Union',
+    date: '23 August 1942 - 2 February 1943',
+    winner: 'Allies',
+    summary: 'The decisive battle of the Eastern Front where Soviet forces encircled and destroyed the German 6th Army, marking a turning point in the war.',
+    battleName: 'Battle of Stalingrad'
+  },
+  nl: {
+    location: 'Stalingrad, Sovjet-Unie',
+    date: '23 augustus 1942 - 2 februari 1943',
+    winner: 'Geallieerden',
+    summary: 'De beslissende slag aan het oostfront waarbij Sovjet-troepen het Duitse 6e leger omsingelden en vernietigden, wat een keerpunt in de oorlog markeerde.',
+    battleName: 'Slag om Stalingrad'
+  }
+});
+// Battle 10: Battle of Stalingrad februari 1943
+dataPoints[41].push({
+  x: 1590,
+  y: 922,
+  civilians: 400000,
+  allied: 1120000,
+  axis: 850000,
+  en: {
+    location: 'Stalingrad, Soviet Union',
+    date: '23 August 1942 - 2 February 1943',
+    winner: 'Allies',
+    summary: 'The decisive battle of the Eastern Front where Soviet forces encircled and destroyed the German 6th Army, marking a turning point in the war.',
+    battleName: 'Battle of Stalingrad'
+  },
+  nl: {
+    location: 'Stalingrad, Sovjet-Unie',
+    date: '23 augustus 1942 - 2 februari 1943',
+    winner: 'Geallieerden',
+    summary: 'De beslissende slag aan het oostfront waarbij Sovjet-troepen het Duitse 6e leger omsingelden en vernietigden, wat een keerpunt in de oorlog markeerde.',
+    battleName: 'Slag om Stalingrad'
+  }
+});
+ 
