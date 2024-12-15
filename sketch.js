@@ -124,31 +124,6 @@ function preload() {
   manIconRed = loadImage('man-icon-red.png');
   manIconGreen = loadImage('man-icon-green.png');
 
-  // battleImages['Battle of Abbeville'] = loadImage('battle-image-Abbeville.jpg');
-  // battleImages['Battle of Arras'] = loadImage('battle-image-Arras.jpg');
-  // // battleImages['Battle of Belgium'] = loadImage('images/battle-image-Belgium.jpg'); // Uncommented and updated for alphabetical order
-  // // battleImages['Battle of Berlin'] = loadImage('images/battle-image-Berlin.jpg');
-  // battleImages['Battle of Calais'] = loadImage('battle-image-Calais.jpg');
-  // //battleImages['Battle of Crete'] = loadImage('images/battle-image-Crete.jpg');
-  // battleImages['Battle of Dunkirk'] = loadImage('battle-image-Dunkirk.jpg');
-  // // battleImages['Battle of Kollaa'] = loadImage('images/battle-image-Kollaa.jpg');
-  // battleImages['Battle of Le Havre'] = loadImage('battle-image-Le Havre.jpg');
-  // battleImages['Battle of Lille'] = loadImage('battle-image-Lille.jpg');
-  // // battleImages['Battle of London'] = loadImage('images/battle-image-London.jpg');
-  // // battleImages['Battle of Normandy'] = loadImage('images/battle-image-Normandy.jpg');
-  // // battleImages['Battle of Raate Road'] = loadImage('images/battle-image-RaateRoad.jpg');
-  // // battleImages['Battle of Salla'] = loadImage('images/battle-image-Salla.jpg');
-  // battleImages['Battle of Sedan'] = loadImage('battle-image-Sedan.jpg');
-  // // battleImages['Battle of Stalingrad'] = loadImage('images/battle-image-Stalingrad.jpg');
-  // // battleImages['Battle of Suomussalmi'] = loadImage('images/battle-image-Suomussalmi.jpg');
-  // // battleImages['Battle of Summa 1'] = loadImage('images/battle-image-Summa1.jpg');
-  // // battleImages['Battle of Summa 2'] = loadImage('images/battle-image-Summa2.jpg');
-  // // battleImages['Battle of the Bulge'] = loadImage('images/battle-image-Bulge.jpg');
-  // // battleImages['Battle of the Channel'] = loadImage('images/battle-image-Channel.jpg');
-  // // battleImages['Battle of the Netherlands'] = loadImage('battle-image-Netherlands.jpg');
-  // // battleImages['Battle of Tomaszów Lubelski'] = loadImage('images/battle-image-Tomaszow.jpg');
-  // // battleImages['The invasion of Yugoslavia'] = loadImage('images/battle-image-Yugoslavia.jpg');
-
   // Load battle images
   battleImages['Battle of Sedan'] = loadImage('images/battle-image-Sedan.jpg');
   battleImages['Battle of Arras'] = loadImage('images/battle-image-Arras.jpg');
@@ -683,7 +658,7 @@ function drawInfoBox(battle) {
 }
 
 function drawDeathScreen() {
-  let windowWidth = width * 0.30;
+  let windowWidth = width * 0.30; 
   let offsetX = transitioning ? lerp(width, width - windowWidth, transitionProgress) : width - windowWidth;
 
   fill(50);
