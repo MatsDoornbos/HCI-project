@@ -739,7 +739,7 @@ function drawDeathScreen() {
     let iconSize = selectedBattle.iconSize;
 
     let totalRows = selectedBattle.totalRows;
-    let textLineHeight = 50; 
+    let textLineHeight = 50;  
     let totalContentHeight = totalRows * iconSize + textLineHeight;
     let windowHeight = boxHeight - 100; 
 

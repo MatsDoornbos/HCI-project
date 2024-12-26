@@ -14,7 +14,7 @@ dataPoints[0].push({
     date: '1 September 1939',
     winner: 'Axis',
     summary: 'World War II began with the German invasion of Poland. Germany attacked Poland using the Blitzkrieg tactic, a fast and coordinated assault. This surprise attack quickly broke through the Polish defense lines, allowing the Germans to capture large parts of Poland within a few weeks.',
-    battleName: 'Invasion of Poland'
+    battleName: 'The invasion of Poland'
   },
   nl: {
     location: 'Polen',
