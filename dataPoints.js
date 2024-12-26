@@ -1119,14 +1119,14 @@ dataPoints[24].push({
     en: {
       location: 'Moscow, Soviet Union',
       date: '5 October 1941 - 7 December 1941',
-      winner: 'Soviet Union',
+      winner: 'Allies',
       summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
       battleName: 'Operation Barbarossa'
     },
     nl: {
       location: 'Moskou, Sovjet-Unie',
       date: '5 oktober 1941 - 7 december 1941',
-      winner: 'Sovjet-Unie',
+      winner: 'Geallieerden',
       summary: 'Als onderdeel van Operatie Barbarossa vond er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Białystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
       battleName: 'Operatie Barbarossa'
     }
@@ -1142,14 +1142,14 @@ dataPoints[25].push({
     en: {
       location: 'Moscow, Soviet Union',
       date: '5 October 1941 - 7 December 1941',
-      winner: 'Soviet Union',
+      winner: 'Allies',
       summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
       battleName: 'Operation Barbarossa'
     },
     nl: {
       location: 'Moskou, Sovjet-Unie',
       date: '5 oktober 1941 - 7 december 1941',
-      winner: 'Sovjet-Unie',
+      winner: 'Geallieerden',
       summary: 'Als onderdeel van Operatie Barbarossa vonden er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Białystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
       battleName: 'Operatie Barbarossa'
     }
@@ -1165,14 +1165,14 @@ dataPoints[25].push({
     en: {
       location: 'Moscow, Soviet Union',
       date: '5 October 1941 - 7 December 1941',
-      winner: 'Soviet Union',
+      winner: 'Allies',
       summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
       battleName: 'Operation Barbarossa'
     },
     nl: {
       location: 'Moskou, Sovjet-Unie',
       date: '5 oktober 1941 - 7 december 1941',
-      winner: 'Sovjet-Unie',
+      winner: 'Geallieerden',
       summary: 'Als onderdeel van Operatie Barbarossa vonden er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Białystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
       battleName: 'Operatie Barbarossa'
     }
@@ -1189,14 +1189,14 @@ dataPoints[25].push({
     en: {
       location: 'Tikhvin, Soviet Union',
       date: '8 November 1941 - 9 December 1941',
-      winner: 'Soviet Union',
+      winner: 'Allies',
       summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
       battleName: 'Operation Barbarossa'
     },
     nl: {
       location: 'Tikhvin, Sovjet-Unie',
       date: '8 november 1941 - 9 december 1941',
-      winner: 'Sovjet-Unie',
+      winner: 'Geallieerden',
       summary: 'Als onderdeel van Operatie Barbarossa vond er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Białystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
       battleName: 'Operatie Barbarossa'
     }
@@ -1212,14 +1212,14 @@ dataPoints[26].push({
     en: {
       location: 'Tikhvin, Soviet Union',
       date: '8 November 1941 - 9 December 1941',
-      winner: 'Soviet Union',
+      winner: 'Allies',
       summary: 'As part of Operation Barbarossa, fighting occurred across Eastern Europe, with rapid German advances through Białystok and Minsk. The initial success for the Axis was marked by heavy Soviet casualties and retreats.',
       battleName: 'Operation Barbarossa'
     },
     nl: {
       location: 'Tikhvin, Sovjet-Unie',
       date: '8 november 1941 - 9 december 1941',
-      winner: 'Sovjet-Unie',
+      winner: 'Geallieerden',
       summary: 'Als onderdeel van Operatie Barbarossa vonden er gevechten plaats in heel Oost-Europa, met snelle Duitse opmarsen door Białystok en Minsk. Het aanvankelijke succes van de Asmogendheden werd gekenmerkt door zware Sovjetverliezen en terugtrekkingen.',
       battleName: 'Operatie Barbarossa'
     }
