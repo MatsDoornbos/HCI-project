@@ -1,12 +1,13 @@
-// Global variable declarations
+// ==================================================
+// ============== Global Variables ==================
+// ==================================================
+
 let europeMap;
 let titleBanner;
 let bannerHeight;
 let currentMonth = 0;
-let previousMonth = 0;  // Keep track of the previous month
-// Actual number of months from September 1939 to April 1945 is about 68 months.
-// September 1939 (index 0) to April 1945 (index ~68).
-let maxMonths = 68; 
+let previousMonth = 0;
+let maxMonths = 69;
 let slider;
 
 let showDetail = false;
@@ -21,26 +22,47 @@ let manIconRed;
 let manIconBlue;
 let manIconGreen;
 
-let battleImages = {}; // Object to store battle images
+let battleImages = {};
+let monthTransitionProgress = 1;
+let transitioningMonth = false;
 
-// Variables for month transition
-let monthTransitionProgress = 1; // Transition progress (0 to 1)
-let transitioningMonth = false;   // Flag to indicate if a month transition is happening
+let scrollBoxExpanded = false;
+let scrollBoxTransitionProgress = 0;
+let scrollBoxTransitioning = false;
 
-// Variables for the scrolling box
-let scrollBoxExpanded = false; // Indicates if the scroll box is expanded to the center
-let scrollBoxTransitionProgress = 0; // For animating the transition
-let scrollBoxTransitioning = false; // Flag to indicate if the box is transitioning
-
-// Global variable for current language
 let currentLanguage = 'en';
 
-// Translation dictionary
+// Additional global variables for final summary
+let showFinalSummary = false;
+let resetBtnX, resetBtnY, resetBtnW, resetBtnH; // We'll use these globally
+
+// Placeholder totals
+let totalAlliedDeaths = 20000000; // 20 million
+let totalAxisDeaths = 10000000;   // 10 million
+let totalCivDeaths = 40000000;    // 40 million
+let totalDeaths = 70000000;       // 70 million
+
+// Variables for the go-back button in detail view
+let goBackBtnX, goBackBtnY, goBackBtnW, goBackBtnH;
+
+// Variables for dragging to scroll
+let draggingScroll = false;
+let lastMouseY = 0;
+
+// ========= Variables for the leaderboard ==========
+let leaderboardItems = []; 
+let selectedLeaderboardBattle = null;
+
+// =========== Momentum Scrolling ============
+let scrollVelocity = 0;   // Store vertical scrolling velocity
+let scrollFriction = 0.95; // Damping factor for momentum
+
+// ============== Translations (Expanded) =============
+// (Unchanged, included as-is)
 const translations = {
   en: {
     monthLabel: 'Month: ',
-    pressEsc: 'Press ESC to return',
-    clickAndScroll: 'Click and Scroll to see more',
+    clickAndScroll: 'Drag to scroll through deaths',
     totalEstimatedDeaths: 'Total (estimated) deaths:',
     battlesWonBy: 'Battles won by:',
     deaths: 'Deaths:',
@@ -53,15 +75,34 @@ const translations = {
     date: 'Date: ',
     winningTeam: 'Winning Team: ',
     summary: 'Summary:',
-    instructions: 'Press ESC to return',
     operationBarbarossa: 'Operation Barbarossa',
     stalingrad: 'Battle of Stalingrad',
-    title1: 'Invasion of Poland'
+    Liberation: 'Liberation of Europe',
+    LiberationText: 'The Allies launched large-scale offensives, including the Normandy landing, to liberate Western Europe step by step from German occupation. This ultimately led to the fall of Berlin in 1945.',
+    westernCampaign: 'Western Campaign',
+    westernCampaignText: 'This period marked the rapid advance of German forces through Western Europe, overwhelming defenses and reshaping the strategic situation.',
+    operationBarbarossa: 'Operation Barbarossa',
+    operationBarbarossaText: 'The massive German invasion of the Soviet Union, codenamed Operation Barbarossa, would become a turning point in the war despite initial Axis successes.',
+    stalingrad: 'Battle of Stalingrad',
+    stalingradText: 'One of the deadliest and most brutal battles, the struggle for Stalingrad marked a decisive Soviet victory, halting the Axis advance.',
+    goBack: 'Go Back',
+    whyDeaths: "Why was it so deadly?",
+
+    // Final Summary
+    finalSummaryTitle: "Final Summary of WW2 Casualties",
+    finalSummaryText: "Between 1939 and 1945, these battles and other brutalities accounted for a total of 70,000,000 deaths.",
+    finalInstructionText: "Click to find out more",
+    resetSlider: "Reset Slider",
+
+    // NEW: Leaderboard translations
+    leaderboardTitle: "Deadliest battles:",
+    battleStalingrad: "Battle of Stalingrad",
+    battleKursk: "Battle of Kursk",
+    battleRzhev: "Battle of Rzhev",
   },
   nl: {
     monthLabel: 'Maand: ',
-    pressEsc: 'Druk op ESC om terug te gaan',
-    clickAndScroll: 'Klik en scroll om meer te zien',
+    clickAndScroll: 'Sleep om door de doden te bladeren',
     totalEstimatedDeaths: 'Totaal (geschatte) doden:',
     battlesWonBy: 'Slagen gewonnen door:',
     deaths: 'Doden:',
@@ -74,48 +115,75 @@ const translations = {
     date: 'Datum: ',
     winningTeam: 'Winnend team: ',
     summary: 'Samenvatting:',
-    instructions: 'Druk op ESC om terug te gaan',
     operationBarbarossa: 'Operatie Barbarossa',
     stalingrad: 'Slag om Stalingrad',
-    title1: 'Invasion of Poland'
+    Liberation: 'Bevrijding van Europa',
+    LiberationText: 'De geallieerden startten grootschalige offensieven, waaronder de landing in Normandië, om West-Europa stap voor stap te bevrijden van de Duitse bezetting. Dit leidde uiteindelijk, met de val van Berlijn in 1945.',
+    westernCampaign: 'Westelijke Campagne',
+    westernCampaignText: 'Deze periode markeerde de snelle opmars van Duitse troepen door West-Europa, waarbij verdedigingen werden overweldigd en de strategische situatie werd herschikt.',
+    operationBarbarossa: 'Operatie Barbarossa',
+    operationBarbarossaText: 'De grootschalige Duitse invasie van de Sovjet-Unie, met de codenaam Operatie Barbarossa, zou ondanks aanvankelijke successen van de asmogendheden een keerpunt in de oorlog worden.',
+    stalingrad: 'Slag om Stalingrad',
+    stalingradText: 'Een van de dodelijkste en meest brute veldslagen, de strijd om Stalingrad markeerde een beslissende Sovjetoverwinning en stopte de opmars van de asmogendheden.',
+    goBack: 'Terug',
+    whyDeaths: "Waarom was het zo dodelijk?",
+
+    // Final Summary
+    finalSummaryTitle: "Eindsamenvatting van WO2 Slachtoffers",
+    finalSummaryText: "Tussen 1939 en 1945 vielen er in Deze veldslagen en andere wreedheden in totaal 70.000.000 doden.",
+    finalInstructionText: "Klik om meer te ontdekken",
+    resetSlider: "Herstart Schuifbalk",
+
+    // NEW: Leaderboard translations
+    leaderboardTitle: "Dodelijkste veldslagen:",
+    battleStalingrad: "Slag om Stalingrad",
+    battleKursk: "Slag om Koersk",
+    battleRzhev: "Slag om Rzhev",
   }
 };
 
 let flagEN, flagNL;
 
-// Define transition screens for certain months
 let transitionScreens = {
-  // Adjust these month indices based on actual historical contexts if needed
-  // Example indices correspond to certain points in time:
-  // Since index 0 = September 1939, 
-  // index 9 ~ June 1940 (Western campaign), 
-  // index 21 ~ June 1941 (Operation Barbarossa),
-  // index 39 ~ late 1942 (Stalingrad).
-  9: { 
+  8: {
     titleKey: 'westernCampaign',
-    text: 'This period marked the rapid advance of German forces through Western Europe, overwhelming defenses and reshaping the strategic situation.',
-    bgAlpha: 200 
+    textKey: 'westernCampaignText',
+    bgAlpha: 200
   },
-  21: { 
-    titleKey: 'operationBarbarossa', 
-    text: 'The massive German invasion of the Soviet Union, codenamed Operation Barbarossa, would become a turning point in the war despite initial Axis successes.', 
-    bgAlpha: 200 
+  21: {
+    titleKey: 'operationBarbarossa',
+    textKey: 'operationBarbarossaText',
+    bgAlpha: 200
   },
-  39: { 
-    titleKey: 'stalingrad', 
-    text: 'One of the deadliest and most brutal battles, the struggle for Stalingrad marked a decisive Soviet victory, halting the Axis advance.', 
-    bgAlpha: 200 
+  35: {
+    titleKey: 'stalingrad',
+    textKey: 'stalingradText',
+    bgAlpha: 200
+  },
+  57: {
+    titleKey: 'Liberation',
+    textKey: 'LiberationText',
+    bgAlpha: 200
   }
 };
 
-// Start date: September 1939
 let startYear = 1939;
-let startMonth = 8; // September is the 9th month, zero-index = 8
+let startMonth = 8;
+
 let monthNames = {
   en: ["January","February","March","April","May","June","July","August","September","October","November","December"],
   nl: ["Januari","Februari","Maart","April","Mei","Juni","Juli","Augustus","September","Oktober","November","December"]
 };
 
+// We'll need references to the actual data for these 3 big battles.
+let stalingradBattle = null;
+let kurskBattle = null;
+let rzhevBattle = null;
+
+
+// =======================================
+// =============== Preload ===============
+// =======================================
 function preload() {
   europeMap = loadImage('europe-map.jpg');
   titleBanner = loadImage('title-banner.png');
@@ -124,60 +192,25 @@ function preload() {
   manIconRed = loadImage('man-icon-red.png');
   manIconGreen = loadImage('man-icon-green.png');
 
-  // Load battle images
-  battleImages['Battle of Sedan'] = loadImage('images/battle-image-Sedan.jpg');
-  battleImages['Battle of Arras'] = loadImage('images/battle-image-Arras.jpg');
-  battleImages['Battle of Dunkirk'] = loadImage('images/battle-image-Dunkirk.jpg');
-  battleImages['Battle of the Netherlands'] = loadImage('images/battle-image-Netherlands.jpg');
-  battleImages['Battle of Lille'] = loadImage('images/battle-image-Lille.jpg');
-  battleImages['Battle of Abbeville'] = loadImage('images/battle-image-Abbeville.jpg');
-  battleImages['Battle of Calais'] = loadImage('images/battle-image-Calais.jpg');
-  battleImages['Battle of Le Havre'] = loadImage('images/battle-image-Le Havre.jpg');
-  battleImages['Battle of Tomaszów Lubelski'] = loadImage('images/battle-image-Tomaszow.jpg');
-  battleImages['Battle of Salla'] = loadImage('images/battle-image-Salla.jpg');
-  battleImages['Battle of Summa 1'] = loadImage('images/battle-image-Summa1.jpg');
-  battleImages['Battle of Summa 2'] = loadImage('images/battle-image-Summa2.jpg');
-  battleImages['Battle of Suomussalmi'] = loadImage('images/battle-image-Suomussalmi.jpg');
-  battleImages['Battle of Raate Road'] = loadImage('images/battle-image-RaateRoad.jpg');
-  battleImages['Battle of Kollaa'] = loadImage('images/battle-image-Kollaa.jpg');
-  battleImages['Battle of the Channel'] = loadImage('images/battle-image-Channel.jpg');
-  battleImages['Battle of London'] = loadImage('images/battle-image-London.jpg');
-  battleImages['Battle of Crete'] = loadImage('images/battle-image-Crete.jpg');
-  battleImages['Battle of Stalingrad'] = loadImage('images/battle-image-Stalingrad.jpg');
-  battleImages['Battle of Kursk'] = loadImage('images/battle-image-Kursk.jpg');
-  battleImages['Battle of Normandy'] = loadImage('images/battle-image-Normandy.jpg');
-  battleImages['Battle of the Bulge'] = loadImage('images/battle-image-Bulge.jpg');
-  battleImages['Battle of Berlin'] = loadImage('images/battle-image-Berlin.jpg');
-  battleImages['Operation Eagle Kent'] = loadImage('images/battle-image-Kent.jpg');
-  battleImages['Operation Eagle Southampton'] = loadImage('images/battle-image-Southampton.jpg');
-  battleImages['Operation Eagle Plymouth'] = loadImage('images/battle-image-Plymouth.jpg');
-  battleImages['Operation Barbarossa'] = loadImage('images/battle-image-Barbarossa.jpg');
-  battleImages['Operation Market Garden'] = loadImage('images/battle-image-MarketGarden.jpg');
-  battleImages['The invasion of Poland'] = loadImage('images/battle-image-Poland.jpg');
-  battleImages['The invasion of Denmark'] = loadImage('images/battle-image-Denmark.jpg');
-  battleImages['The invasion of Norway'] = loadImage('images/battle-image-Norway.jpg');	
-  battleImages['The invasion of Belgium'] = loadImage('images/battle-image-Belgium.jpg');
-  battleImages['The invasion of Greece'] = loadImage('images/battle-image-Greece.jpg');
-  battleImages['The invasion of Yugoslavia'] = loadImage('images/battle-image-Yugoslavia.jpg');
+  // Example battle images
+  battleImages['Battle of Abbeville'] = loadImage('battle-image-Abbeville.jpg');
+  // If you have a specific image for Stalingrad, Kursk, or Rzhev, load them here:
+  // battleImages['Battle of Stalingrad'] = loadImage('somePath.jpg');
 
   flagEN = loadImage('flag-en.png');
   flagNL = loadImage('flag-nl.png');
 }
 
-// Convert a slider index to a month-year string
-function getMonthYearString(index) {
-  let totalMonthsFromStart = index;
-  let year = startYear + Math.floor((startMonth + totalMonthsFromStart) / 12);
-  let month = (startMonth + totalMonthsFromStart) % 12;
-  return monthNames[currentLanguage][month] + " " + year;
-}
 
+// =======================================
+// ================ Setup ================
+// =======================================
 function setup() {
-  let canvasWidth = europeMap.width; 
+  let canvasWidth = europeMap.width;
   bannerHeight = (titleBanner.height / titleBanner.width) * canvasWidth;
   createCanvas(canvasWidth, bannerHeight + europeMap.height + 50);
 
-  slider = createSlider(0, maxMonths - 1, 0, 1);
+  slider = createSlider(0, maxMonths, 0, 1); 
   slider.position(30, height - 60);
   slider.style('width', width - 50 + 'px');
   slider.class('customSlider');
@@ -186,18 +219,58 @@ function setup() {
   glowLayer = createGraphics(width, height - 50 - bannerHeight);
 
   defineDataPoints();
-  console.log(dataPoints);
+
+  // Now that dataPoints is defined, pick the battles from index 69
+  if (dataPoints[69]) {
+    stalingradBattle = dataPoints[69].find(b => b.en.battleName === "Battle of Stalingrad");
+    kurskBattle      = dataPoints[69].find(b => b.en.battleName === "Battle of Kursk");
+    rzhevBattle      = dataPoints[69].find(b => b.en.battleName === "Battle of Rzhev");
+  } else {
+    console.warn("dataPoints[69] is undefined. Make sure your data covers index 69.");
+  }
+
+  console.log("DataPoints loaded:", dataPoints);
 }
 
+function findBattleByName(name) {
+  for (let month of dataPoints) {
+    for (let b of month) {
+      if (b.en.battleName === name) {
+        return b;
+      }
+    }
+  }
+  return null;
+}
+
+
+// =======================================
+// ================ Draw =================
+// =======================================
 function draw() {
   background(220);
 
-  if (showDetail || transitioning) {
+  // Decide if we show final summary screen
+  if (slider.value() === maxMonths) {
+    showFinalSummary = true;
+  } else {
+    showFinalSummary = false;
+  }
+
+  // Hide slider if in detail view, transitioning, OR final summary
+  if (showDetail || transitioning || showFinalSummary) {
     slider.hide();
   } else {
     slider.show();
   }
 
+  // If final summary is active, skip drawing the map, etc.
+  if (showFinalSummary) {
+    drawFinalSummary();
+    return; // skip the rest
+  }
+
+  // Handle detail transition
   if (transitioning) {
     transitionProgress += 0.02;
     if (transitionProgress >= 1) {
@@ -207,6 +280,7 @@ function draw() {
     }
   }
 
+  // Handle month transition fade logic
   if (transitioningMonth) {
     monthTransitionProgress += deltaTime / 500;
     if (monthTransitionProgress >= 1) {
@@ -215,122 +289,105 @@ function draw() {
     }
   }
 
-  if (transitionScreens[currentMonth]) {
-    image(titleBanner, 0, 0, width, bannerHeight);
-    let flagSize = 40;
-    image(flagEN, width - (flagSize * 2 + 20), 10, flagSize, flagSize);
-    image(flagNL, width - (flagSize + 10), 10, flagSize, flagSize);
-
-    fill(200);
-    rect(0, height - 100 , width, 100);
-    fill(0);
-    textSize(32);
-    textAlign(LEFT, CENTER);
-    // Show previous month's date when in transition screen
-    let displayedDate = getMonthYearString(previousMonth);
-    text(translations[currentLanguage].monthLabel + displayedDate, 10, height - 15);
-
-    drawTransitionScreen(currentMonth);
-    return;
-  }
-
+  // Zoom logic (if detail or transitioning to detail)
   let zoomLevel = transitioning || showDetail ? lerp(1, 2, transitionProgress) : 1;
   let zoomOffsetX = -100;
-  let zoomX = transitioning || showDetail ? selectedBattle.x - zoomOffsetX : width / 2;
-  let zoomY = transitioning || showDetail ? selectedBattle.y : (height - 50 - bannerHeight) / 2;
+  let zoomX = transitioning || showDetail ? selectedBattle?.x - zoomOffsetX : width / 2;
+  let zoomY = transitioning || showDetail ? selectedBattle?.y : (height - 50 - bannerHeight) / 2;
 
+  // ================== Draw Map ====================
   push();
   translate(0, bannerHeight);
-
   push();
-  translate(width / 2, (height - 50 - bannerHeight) / 2);
-  scale(zoomLevel);
-  translate(-zoomX, -zoomY);
+    translate(width / 2, (height - 50 - bannerHeight) / 2);
+    scale(zoomLevel);
+    translate(-zoomX, -zoomY);
 
-  image(europeMap, 0, 0);
+    image(europeMap, 0, 0);
 
-  if (!showDetail && !transitioning) {
-    glowLayer.clear();
-    glowLayer.blendMode(ADD);
+    // If not in detail, show points with glow
+    if (!showDetail && !transitioning) {
+      glowLayer.clear();
+      glowLayer.blendMode(ADD);
 
-    if (transitioningMonth) {
-      let fadeOutAlpha = map(monthTransitionProgress, 0, 1, 255, 0);
-      let fadeInAlpha = map(monthTransitionProgress, 0, 1, 0, 255);
+      if (transitioningMonth) {
+        let fadeOutAlpha = map(monthTransitionProgress, 0, 1, 255, 0);
+        let fadeInAlpha = map(monthTransitionProgress, 0, 1, 0, 255);
 
-      if (dataPoints[previousMonth]) {
-        for (let battle of dataPoints[previousMonth]) {
-          drawGlow(glowLayer, battle.x, battle.y, battle.glowRadius, battle.color, fadeOutAlpha);
+        if (dataPoints[previousMonth]) {
+          for (let battle of dataPoints[previousMonth]) {
+            drawGlow(glowLayer, battle.x, battle.y, battle.glowRadius, battle.color, fadeOutAlpha);
+          }
+        }
+
+        if (dataPoints[currentMonth]) {
+          for (let battle of dataPoints[currentMonth]) {
+            drawGlow(glowLayer, battle.x, battle.y, battle.glowRadius, battle.color, fadeInAlpha);
+          }
+        }
+      } else {
+        if (dataPoints[currentMonth]) {
+          for (let battle of dataPoints[currentMonth]) {
+            drawGlow(glowLayer, battle.x, battle.y, battle.glowRadius, battle.color, 255);
+          }
         }
       }
 
-      if (dataPoints[currentMonth]) {
-        for (let battle of dataPoints[currentMonth]) {
-          drawGlow(glowLayer, battle.x, battle.y, battle.glowRadius, battle.color, fadeInAlpha);
+      glowLayer.blendMode(BLEND);
+      image(glowLayer, 0, 0);
+
+      // Draw small circles
+      if (transitioningMonth) {
+        let fadeOutAlpha = map(monthTransitionProgress, 0, 1, 255, 0);
+        let fadeInAlpha = map(monthTransitionProgress, 0, 1, 0, 255);
+
+        if (dataPoints[previousMonth]) {
+          for (let battle of dataPoints[previousMonth]) {
+            let c = battle.color;
+            fill(red(c), green(c), blue(c), fadeOutAlpha);
+            noStroke();
+            ellipse(battle.x, battle.y, 5 / zoomLevel);
+          }
         }
-      }
-    } else {
-      if (dataPoints[currentMonth]) {
-        for (let battle of dataPoints[currentMonth]) {
-          drawGlow(glowLayer, battle.x, battle.y, battle.glowRadius, battle.color, 255);
+
+        if (dataPoints[currentMonth]) {
+          for (let battle of dataPoints[currentMonth]) {
+            let c = battle.color;
+            fill(red(c), green(c), blue(c), fadeInAlpha);
+            noStroke();
+            ellipse(battle.x, battle.y, 5 / zoomLevel);
+          }
+        }
+      } else {
+        if (dataPoints[currentMonth]) {
+          for (let battle of dataPoints[currentMonth]) {
+            fill(battle.color);
+            noStroke();
+            ellipse(battle.x, battle.y, 5 / zoomLevel);
+          }
         }
       }
     }
-
-    glowLayer.blendMode(BLEND);
-    image(glowLayer, 0, 0);
-
-    if (transitioningMonth) {
-      let fadeOutAlpha = map(monthTransitionProgress, 0, 1, 255, 0);
-      let fadeInAlpha = map(monthTransitionProgress, 0, 1, 0, 255);
-
-      if (dataPoints[previousMonth]) {
-        for (let battle of dataPoints[previousMonth]) {
-          let c = battle.color;
-          fill(red(c), green(c), blue(c), fadeOutAlpha);
-          noStroke();
-          ellipse(battle.x, battle.y, 5 / zoomLevel);
-        }
+    else {
+      // If in detail, highlight only selected battle
+      glowLayer.clear();
+      glowLayer.blendMode(ADD);
+      if (selectedBattle) {
+        drawGlow(glowLayer, selectedBattle.x, selectedBattle.y, selectedBattle.glowRadius, selectedBattle.color, 255);
       }
+      glowLayer.blendMode(BLEND);
+      image(glowLayer, 0, 0);
 
-      if (dataPoints[currentMonth]) {
-        for (let battle of dataPoints[currentMonth]) {
-          let c = battle.color;
-          fill(red(c), green(c), blue(c), fadeInAlpha);
-          noStroke();
-          ellipse(battle.x, battle.y, 5 / zoomLevel);
-        }
-      }
-    } else {
-      if (dataPoints[currentMonth]) {
-        for (let battle of dataPoints[currentMonth]) {
-          fill(battle.color);
-          noStroke();
-          ellipse(battle.x, battle.y, 5 / zoomLevel);
-        }
+      if (selectedBattle) {
+        fill(selectedBattle.color);
+        noStroke();
+        ellipse(selectedBattle.x, selectedBattle.y, 10 / zoomLevel);
       }
     }
-  } else {
-    glowLayer.clear();
-    glowLayer.blendMode(ADD);
-    if (selectedBattle) {
-      drawGlow(glowLayer, selectedBattle.x, selectedBattle.y, selectedBattle.glowRadius, selectedBattle.color, 255);
-    }
-    glowLayer.blendMode(BLEND);
-    image(glowLayer, 0, 0);
-
-    if (selectedBattle) {
-      fill(selectedBattle.color);
-      noStroke();
-      ellipse(selectedBattle.x, selectedBattle.y, 10 / zoomLevel);
-    }
-  }
-
   pop();
   pop();
 
-  image(titleBanner, 0, 0, width, bannerHeight);
-
-  // Calculate the displayed date
+  // ============= Display Current Month =============
   let displayedDate;
   if (transitionScreens[currentMonth]) {
     displayedDate = getMonthYearString(previousMonth);
@@ -340,50 +397,188 @@ function draw() {
 
   if (!showDetail && !transitioning) {
     fill(200);
-    rect(0, height - 100 , width, 100);
+    rect(0, height - 100, width, 100);
     fill(0);
     textSize(32);
     textAlign(LEFT, CENTER);
     text(translations[currentLanguage].monthLabel + displayedDate, 10, height - 15);
   }
 
+  // =========== If in detail mode, draw death screen
   if (showDetail || transitioning) {
     drawDeathScreen();
   }
 
+  // =============== Draw Legend ====================
   drawLegend();
 
-  let flagSize = 40;
-  image(flagEN, width - (flagSize * 2 + 20), 10, flagSize, flagSize);
-  image(flagNL, width - (flagSize + 10), 10, flagSize, flagSize);
+  // ============ Draw Banner at top ===============
+  image(titleBanner, 0, 0, width, bannerHeight);
+
+  // ============ Draw Language Flags ==============
+  let flagSize = 60;
+  image(flagEN, width - 90, 35, flagSize, flagSize);
+  image(flagNL, width - 90, 115, flagSize, flagSize);
+
+  // ========== Transition Screen if any ============ 
+if (transitionScreens[currentMonth] && !showDetail) {
+  let screenData = transitionScreens[currentMonth];
+  
+  // 1) Grab the translated title (e.g. translations.en.westernCampaign)
+  //    store it in screenData.title (or just use it directly in drawTransitionScreen).
+  if (screenData.titleKey && translations[currentLanguage][screenData.titleKey]) {
+    screenData.title = translations[currentLanguage][screenData.titleKey];
+  }
+
+  // 2) Grab the translated text (e.g. translations.en.westernCampaignText)
+  //    override the 'text' property in screenData with the correct translation.
+  if (screenData.textKey && translations[currentLanguage][screenData.textKey]) {
+    screenData.text = translations[currentLanguage][screenData.textKey];
+  }
+
+   drawTransitionScreen(currentMonth);
+  }
 }
 
-function mousePressed() {
-  let flagSize = 40;
-  let enX = width - (flagSize * 2 + 20);
-  let enY = 10;
-  let nlX = width - (flagSize + 10);
-  let nlY = 10;
 
-  if (mouseX >= enX && mouseX <= enX + flagSize && mouseY >= enY && mouseY <= enY + flagSize) {
+// =======================================
+// ============ Mouse Pressed ============
+// =======================================
+function mousePressed() {
+  let flagSize = 60;
+  let enX = width - 90;
+  let enY = 35;
+  let nlX = width - 90;
+  let nlY = 115;
+
+  // Check if clicked English flag
+  if (mouseX >= enX && mouseX <= enX + flagSize &&
+      mouseY >= enY && mouseY <= enY + flagSize) {
     currentLanguage = 'en';
     return;
   }
 
-  if (mouseX >= nlX && mouseX <= nlX + flagSize && mouseY >= nlY && mouseY <= nlY + flagSize) {
+  // Check if clicked Dutch flag
+  if (mouseX >= nlX && mouseX <= nlX + flagSize &&
+      mouseY >= nlY && mouseY <= nlY + flagSize) {
     currentLanguage = 'nl';
     return;
   }
 
-  if (transitionScreens[currentMonth]) {
-    return; 
+  // If final summary is showing, check for "Reset Slider" or leaderboard
+  if (showFinalSummary) {
+    // Check "Reset Slider"
+    if (mouseX >= resetBtnX && mouseX <= resetBtnX + resetBtnW &&
+        mouseY >= resetBtnY && mouseY <= resetBtnY + resetBtnH) {
+      slider.value(0);
+      showFinalSummary = false;
+      selectedLeaderboardBattle = null;
+      
+      currentMonth = 0;
+      previousMonth = 0;
+      monthTransitionProgress = 1;
+      transitioningMonth = false;
+      return;
+    }
+
+    // Check leaderboard items
+    for (let item of leaderboardItems) {
+      if (
+        mouseX >= item.x && mouseX <= item.x + item.w &&
+        mouseY >= item.y && mouseY <= item.y + item.h
+      ) {
+        if (selectedLeaderboardBattle === item.battle) {
+          selectedLeaderboardBattle = null;
+        } else {
+          selectedLeaderboardBattle = item.battle;
+        }
+        return;
+      }
+    }
   }
 
-  if (!showDetail && !transitioning && mouseY > bannerHeight && mouseY < height - 50) {
+  // If in detail mode, check if we clicked "Go Back"
+  let windowWidth = width * 0.30;
+  let offsetX = transitioning ? lerp(width, width - windowWidth, transitionProgress) : width - windowWidth;
+
+  if (showDetail && !transitioning) {
+    let localMouseX = mouseX - offsetX;
+    let localMouseY = mouseY - bannerHeight;
+
+    // Check "Go Back"
+    if (goBackBtnX && localMouseX >= goBackBtnX && localMouseX <= goBackBtnX + goBackBtnW &&
+        localMouseY >= goBackBtnY && localMouseY <= goBackBtnY + goBackBtnH) {
+      showDetail = false;
+      selectedBattle = null;
+      scrollPosition = 0;
+      return;
+    }
+
+    // Scroll box click detection
+    let {
+      smallBoxWidth,
+      smallBoxHeight,
+      smallBoxX,
+      smallBoxY,
+      largeBoxWidth,
+      largeBoxHeight,
+      largeBoxX,
+      largeBoxY,
+    } = getScrollBoxDimensions();
+
+    let mx = localMouseX;
+    let my = localMouseY;
+
+    let boxWidth, boxHeight, boxX, boxY;
+
+    if (scrollBoxTransitioning) {
+      let t = scrollBoxTransitionProgress;
+      if (scrollBoxExpanded) {
+        boxWidth = lerp(smallBoxWidth, largeBoxWidth, t);
+        boxHeight = lerp(smallBoxHeight, largeBoxHeight, t);
+        boxX = lerp(smallBoxX, largeBoxX, t);
+        boxY = lerp(smallBoxY, largeBoxY, t);
+      } else {
+        boxWidth = lerp(largeBoxWidth, smallBoxWidth, t);
+        boxHeight = lerp(largeBoxHeight, smallBoxHeight, t);
+        boxX = lerp(largeBoxX, smallBoxX, t);
+        boxY = lerp(largeBoxY, smallBoxY, t);
+      }
+    } else {
+      if (scrollBoxExpanded) {
+        boxWidth = largeBoxWidth;
+        boxHeight = largeBoxHeight;
+        boxX = largeBoxX;
+        boxY = largeBoxY;
+      } else {
+        boxWidth = smallBoxWidth;
+        boxHeight = smallBoxHeight;
+        boxX = smallBoxX;
+        boxY = smallBoxY;
+      }
+    }
+
+    if (mx >= boxX && mx <= boxX + boxWidth && my >= boxY && my <= boxY + boxHeight) {
+      if (!scrollBoxExpanded) {
+        scrollBoxExpanded = true;
+        scrollBoxTransitioning = true;
+        scrollBoxTransitionProgress = 0;
+      } else {
+        draggingScroll = true;
+        lastMouseY = mouseY;
+      }
+    }
+  }
+  else if (!showDetail && !transitioning && mouseY > bannerHeight && mouseY < height - 50) {
+    // Selecting a battle from the map
     let zoomLevel = transitioning || showDetail ? lerp(1, 2, transitionProgress) : 1;
     let zoomOffsetX = -100;
-    let zoomX = transitioning || showDetail ? (selectedBattle ? selectedBattle.x - zoomOffsetX : width/2) : width / 2;
-    let zoomY = transitioning || showDetail ? (selectedBattle ? selectedBattle.y : (height - 50 - bannerHeight) / 2) : (height - 50 - bannerHeight) / 2;
+    let zoomX = transitioning || showDetail 
+      ? (selectedBattle ? selectedBattle.x - zoomOffsetX : width/2) 
+      : width / 2;
+    let zoomY = transitioning || showDetail 
+      ? (selectedBattle ? selectedBattle.y : (height - 50 - bannerHeight) / 2) 
+      : (height - 50 - bannerHeight) / 2;
 
     let adjustedMouseY = mouseY - bannerHeight;
     let adjustedMouseX = mouseX;
@@ -405,133 +600,43 @@ function mousePressed() {
           scrollPosition = 0;
           transitioning = true;
           transitionProgress = 0;
+
+          // ------------------------------
+          // 1) AUTO-COLLAPSE SCROLL BOX
+          // ------------------------------
+          scrollBoxExpanded = false;
+          scrollBoxTransitioning = false; 
+          scrollBoxTransitionProgress = 0;
+
           break;
         }
       }
     }
-  } else if (showDetail && !transitioning) {
-    let {
-      smallBoxWidth,
-      smallBoxHeight,
-      smallBoxX,
-      smallBoxY,
-      largeBoxWidth,
-      largeBoxHeight,
-      largeBoxX,
-      largeBoxY,
-    } = getScrollBoxDimensions();
-
-    let boxWidth, boxHeight, boxX, boxY;
-
-    if (scrollBoxTransitioning) {
-      let t = scrollBoxTransitionProgress;
-      if (scrollBoxExpanded) {
-        boxWidth = lerp(smallBoxWidth, largeBoxWidth, t);
-        boxHeight = lerp(smallBoxHeight, largeBoxHeight, t);
-        boxX = lerp(smallBoxX, largeBoxX, t);
-        boxY = lerp(smallBoxY, largeBoxY, t);
-      } else {
-        boxWidth = lerp(largeBoxWidth, smallBoxWidth, t);
-        boxHeight = lerp(largeBoxHeight, smallBoxHeight, t);
-        boxX = lerp(largeBoxX, smallBoxX, t);
-        boxY = lerp(largeBoxY, smallBoxY, t);
-      }
-    } else {
-      if (scrollBoxExpanded) {
-        boxWidth = largeBoxWidth;
-        boxHeight = largeBoxHeight;
-        boxX = largeBoxX;
-        boxY = largeBoxY;
-      } else {
-        boxWidth = smallBoxWidth;
-        boxHeight = smallBoxHeight;
-        boxX = smallBoxX;
-        boxY = smallBoxY;
-      }
-    }
-
-    if (mouseX >= boxX && mouseX <= boxX + boxWidth && mouseY >= boxY && mouseY <= boxY + boxHeight) {
-      scrollBoxExpanded = !scrollBoxExpanded;
-      scrollBoxTransitioning = true;
-      scrollBoxTransitionProgress = 0;
-    } else if (scrollBoxExpanded) {
-      scrollBoxExpanded = false;
-      scrollBoxTransitioning = true;
-      scrollBoxTransitionProgress = 0;
-    }
   }
 }
 
-function keyPressed() {
-  if (keyCode === ESCAPE) {
-    if (scrollBoxExpanded) {
-      scrollBoxExpanded = false;
-      scrollBoxTransitioning = true;
-      scrollBoxTransitionProgress = 0;
-    } else if (showDetail) {
-      showDetail = false;
-      selectedBattle = null;
-      scrollPosition = 0;
-    }
+function mouseDragged() {
+  // -----------------------
+  // 2) MOMENTUM SCROLLING
+  // -----------------------
+  if (showDetail && draggingScroll && !transitioning && scrollBoxExpanded) {
+    let dy = mouseY - lastMouseY;
+    // Store the "instant" velocity
+    scrollVelocity = dy;
+    // Move the scroll position
+    scrollPosition -= scrollVelocity;
+    lastMouseY = mouseY;
   }
 }
 
-function mouseWheel(event) {
-  if (showDetail) {
-    let {
-      smallBoxWidth,
-      smallBoxHeight,
-      smallBoxX,
-      smallBoxY,
-      largeBoxWidth,
-      largeBoxHeight,
-      largeBoxX,
-      largeBoxY,
-    } = getScrollBoxDimensions();
-
-    let boxWidth, boxHeight, boxX, boxY;
-
-    if (scrollBoxTransitioning) {
-      let t = scrollBoxTransitionProgress;
-      if (scrollBoxExpanded) {
-        boxWidth = lerp(smallBoxWidth, largeBoxWidth, t);
-        boxHeight = lerp(smallBoxHeight, largeBoxHeight, t);
-        boxX = lerp(smallBoxX, largeBoxX, t);
-        boxY = lerp(smallBoxY, largeBoxY, t);
-      } else {
-        boxWidth = lerp(largeBoxWidth, smallBoxWidth, t);
-        boxHeight = lerp(largeBoxHeight, smallBoxHeight, t);
-        boxX = lerp(largeBoxX, smallBoxX, t);
-        boxY = lerp(largeBoxY, smallBoxY, t);
-      }
-    } else {
-      if (scrollBoxExpanded) {
-        boxWidth = largeBoxWidth;
-        boxHeight = largeBoxHeight;
-        boxX = largeBoxX;
-        boxY = largeBoxY;
-      } else {
-        boxWidth = smallBoxWidth;
-        boxHeight = smallBoxHeight;
-        boxX = smallBoxX;
-        boxY = smallBoxY;
-      }
-    }
-
-    if (mouseX >= boxX && mouseX <= boxX + boxWidth && mouseY >= boxY && mouseY <= boxY + boxHeight) {
-      scrollPosition += event.delta;
-      let totalDeaths = selectedBattle.totalDeaths;
-      let iconsPerRow = selectedBattle.iconsPerRow;
-      let iconSize = selectedBattle.iconSize;
-      let totalRows = selectedBattle.totalRows;
-      let textLineHeight = 50; 
-      let totalContentHeight = totalRows * iconSize + textLineHeight;
-      let windowHeight = boxHeight - 100;
-      scrollPosition = constrain(scrollPosition, 0, totalContentHeight - windowHeight);
-    }
-  }
+function mouseReleased() {
+  draggingScroll = false;
 }
 
+
+// =======================================
+// =========== Slider Update =============
+// =======================================
 function updateMonth() {
   if (!showDetail && !transitioning) {
     let newMonth = slider.value();
@@ -544,20 +649,30 @@ function updateMonth() {
   }
 }
 
+
+// =======================================
+// ========== Draw Transition Screen =====
+// =======================================
 function drawTransitionScreen(monthIndex) {
   let screenData = transitionScreens[monthIndex];
+  let transitionY = bannerHeight;
+  let transitionH = 300;
+
   push();
-  fill(50, screenData.bgAlpha); 
-  rect(0, 0, width, height);
+  fill(50, screenData.bgAlpha);
+  rect(0, transitionY, width, transitionH);
+
   fill(255);
   textSize(64);
   textAlign(CENTER, CENTER);
-  text(translations[currentLanguage][screenData.titleKey], width / 2, height / 2);
+
+  let titleY = transitionY + transitionH / 2 - 50;
+  text(screenData.title, width / 2, titleY);
 
   let boxWidth = width * 0.6;
-  let boxHeight = 150;
+  let boxHeight = 100;
   let boxX = (width - boxWidth) / 2;
-  let boxY = height / 2 + 100;
+  let boxY = transitionY + transitionH / 2;
 
   fill(255, 230);
   noStroke();
@@ -570,6 +685,10 @@ function drawTransitionScreen(monthIndex) {
   pop();
 }
 
+
+// =======================================
+// =========== Drawing Glow ==============
+// =======================================
 function drawGlow(layer, x, y, radius, color, alpha) {
   let ctx = layer.drawingContext;
 
@@ -580,8 +699,8 @@ function drawGlow(layer, x, y, radius, color, alpha) {
   let innerAlpha = alpha / 255;
 
   let gradient = ctx.createRadialGradient(x, y, 0, x, y, radius);
-  let innerColor = 'rgba(' + r + ',' + g + ',' + b + ',' + innerAlpha + ')';
-  let outerColor = 'rgba(' + r + ',' + g + ',' + b + ',0)';
+  let innerColor = `rgba(${r},${g},${b},${innerAlpha})`;
+  let outerColor = `rgba(${r},${g},${b},0)`;
 
   gradient.addColorStop(0, innerColor);
   gradient.addColorStop(1, outerColor);
@@ -592,16 +711,20 @@ function drawGlow(layer, x, y, radius, color, alpha) {
   ctx.fill();
 }
 
+
+// =======================================
+// =========== Info Box (Detail) =========
+// =======================================
 function drawInfoBox(battle) {
   let infoBoxX = 20;
-  let infoBoxY = 250;
-  let infoBoxWidth = 560;
+  let infoBoxY = 30;
+  let infoBoxWidth = 650;
   let infoBoxHeight = height - 800;
 
   let imageBoxX = 20;
-  let imageBoxY = infoBoxY + infoBoxHeight + 20; 
+  let imageBoxY = infoBoxY + infoBoxHeight + 20;
   let imageBoxWidth = infoBoxWidth;
-  let imageBoxHeight = 560 * (3 / 4); 
+  let imageBoxHeight = 560 * (3 / 4);
 
   fill(255, 255, 255, 200);
   rect(infoBoxX, infoBoxY, infoBoxWidth, infoBoxHeight);
@@ -655,25 +778,44 @@ function drawInfoBox(battle) {
   if (img) {
     image(img, imageBoxX, imageBoxY, imageBoxWidth, imageBoxHeight);
   }
+
+  goBackBtnW = imageBoxWidth;
+  goBackBtnH = 80;
+  goBackBtnX = imageBoxX;
+  goBackBtnY = imageBoxY + imageBoxHeight + 20;
+
+  fill(255, 0, 0, 200);
+  rect(goBackBtnX, goBackBtnY, goBackBtnW, goBackBtnH, 10);
+  fill(255);
+  textSize(32);
+  textAlign(CENTER, CENTER);
+  text(translations[currentLanguage].goBack, goBackBtnX + goBackBtnW / 2, goBackBtnY + goBackBtnH / 2);
 }
 
+
+// =======================================
+// =========== Draw Death Screen =========
+// =======================================
 function drawDeathScreen() {
-  let windowWidth = width * 0.30; 
-  let offsetX = transitioning ? lerp(width, width - windowWidth, transitionProgress) : width - windowWidth;
+  let windowWidth = width * 0.35;
+  let offsetX = transitioning 
+    ? lerp(width, width - windowWidth, transitionProgress) 
+    : width - windowWidth;
+
+  push();
+  translate(offsetX, bannerHeight);
 
   fill(50);
   noStroke();
-  rect(offsetX, bannerHeight, windowWidth, height);
+  rect(0, 0, windowWidth, height);
 
-  push();
-  translate(offsetX, 0);
   if (selectedBattle) {
     drawInfoBox(selectedBattle);
   }
-  pop();
 
+  // Animate scroll box transitions
   if (scrollBoxTransitioning) {
-    scrollBoxTransitionProgress += deltaTime / 500; 
+    scrollBoxTransitionProgress += deltaTime / 500;
     if (scrollBoxTransitionProgress >= 1) {
       scrollBoxTransitionProgress = 1;
       scrollBoxTransitioning = false;
@@ -720,6 +862,7 @@ function drawDeathScreen() {
     }
   }
 
+  // Draw the scrolling box
   push();
   translate(boxX, boxY);
 
@@ -739,26 +882,24 @@ function drawDeathScreen() {
     let iconSize = selectedBattle.iconSize;
 
     let totalRows = selectedBattle.totalRows;
-    let textLineHeight = 50; 
+    let textLineHeight = 50;
     let totalContentHeight = totalRows * iconSize + textLineHeight;
-    let windowHeight = boxHeight - 100; 
+    let windowHeight = boxHeight - 100;
 
+    // Clamp scrollPosition
     scrollPosition = constrain(scrollPosition, 0, totalContentHeight - windowHeight);
 
+    // Determine which rows to draw
     let firstRow = floor(scrollPosition / iconSize);
     let lastRow = ceil((scrollPosition + windowHeight) / iconSize);
 
     let startX = (boxWidth - iconsPerRow * iconSize) / 2;
-    let startY = 50; 
+    let startY = 50;
 
     for (let row = firstRow; row < lastRow; row++) {
       for (let col = 0; col < iconsPerRow; col++) {
         let i = row * iconsPerRow + col;
-        if (i >= totalDeaths) {
-          break;
-        }
-        let x = startX + col * iconSize;
-        let y = startY + row * iconSize - scrollPosition;
+        if (i >= totalDeaths) break;
 
         let img;
         if (i < selectedBattle.allied) {
@@ -766,14 +907,16 @@ function drawDeathScreen() {
         } else if (i < selectedBattle.allied + selectedBattle.axis) {
           img = manIconRed; 
         } else {
-          img = manIconGreen; 
+          img = manIconGreen;
         }
 
+        let x = startX + col * iconSize;
+        let y = startY + row * iconSize - scrollPosition;
         image(img, x, y, iconSize, iconSize);
       }
     }
 
-    let textY = startY + totalRows * iconSize - scrollPosition + 20; 
+    let textY = startY + totalRows * iconSize - scrollPosition + 20;
     if (textY > -50 && textY < boxHeight) {
       fill(255);
       textSize(20);
@@ -785,22 +928,255 @@ function drawDeathScreen() {
     textSize(20);
     textAlign(CENTER, TOP);
     text(translations[currentLanguage].clickAndScroll, boxWidth / 2, 20);
-  }
 
+    if (selectedBattle.totalDeaths > 5000) {
+      stroke(255);
+      strokeWeight(10);
+
+      let percentages = [0.25, 0.5, 0.75];
+      for (let p of percentages) {
+        let markerY = startY + totalContentHeight * p - scrollPosition;
+        if (markerY > 0 && markerY < boxHeight) {
+          line(boxWidth - 70, markerY, boxWidth - 10, markerY);
+
+          noStroke();
+          fill(255);
+          textSize(20);
+          textAlign(RIGHT, BOTTOM);
+          text(int(p * 100) + "%", boxWidth - 20, markerY - 20);
+        }
+      }
+    }
+  }
   ctx.restore();
   pop();
 
-  fill(255);
-  textSize(32);
-  textAlign(CENTER, CENTER);
-  text(translations[currentLanguage].instructions, width / 1.19, height - 50);
+  // -------------------------------
+  // 2) MOMENTUM SCROLLING (apply)
+  // -------------------------------
+  if (showDetail && scrollBoxExpanded && !draggingScroll) {
+    // Apply friction
+    scrollVelocity *= scrollFriction;
+    // If velocity is very small, stop it
+    if (abs(scrollVelocity) < 0.1) {
+      scrollVelocity = 0;
+    }
+    // Move scroll content by velocity
+    scrollPosition -= scrollVelocity;
+
+    // Clamp again
+    if (selectedBattle) {
+      let totalContentHeight = selectedBattle.totalRows * selectedBattle.iconSize + 50;
+      let windowHeight = (boxHeight - 100);
+      let maxScroll = totalContentHeight - windowHeight;
+      scrollPosition = constrain(scrollPosition, 0, maxScroll);
+    }
+  }
+
+  pop(); // pop the translate for death screen
 }
 
+
+// =======================================
+// =========== Draw Final Summary ========
+// =======================================
+function drawFinalSummary() {
+  background(0, 180);
+
+  fill(255);
+  textAlign(CENTER, TOP);
+  textSize(106);
+  text(translations[currentLanguage].finalSummaryTitle, width / 2, 100);
+
+  textSize(40);
+  let summaryText = translations[currentLanguage].finalSummaryText;
+  let textBoxWidth = width * 0.6;
+  let textBoxX = (width - textBoxWidth) / 2;
+  let textBoxY = 250;
+  fill(255);
+  text(summaryText, textBoxX, textBoxY, textBoxWidth, 200);
+
+  let centerX = width / 2;
+  let centerY = 700;
+  let leaderboardX = centerX - 600; 
+  let leaderboardY = centerY - 100; 
+
+  fill(255);
+  textSize(34);
+  textAlign(LEFT, TOP);
+  text(translations[currentLanguage].leaderboardTitle, leaderboardX, leaderboardY);
+
+  leaderboardItems = []; 
+  textSize(28);
+  let lineSpacing = 60;
+  let startListY = leaderboardY + 50; 
+
+  function drawLeaderboardItem(label, bx, by, whichBattle) {
+    fill(255);
+    textAlign(LEFT, TOP);
+    text(label, bx, by);
+    let w = textWidth(label);
+    let h = 50; 
+    leaderboardItems.push({ x: bx, y: by, w, h, battle: whichBattle });
+  }
+
+  let stalingradLabel = "1. " + translations[currentLanguage].battleStalingrad;
+  let kurskLabel      = "2. " + translations[currentLanguage].battleKursk;
+  let rzhevLabel      = "3. " + translations[currentLanguage].battleRzhev;
+
+  drawLeaderboardItem(stalingradLabel, leaderboardX, startListY, stalingradBattle);
+  drawLeaderboardItem(kurskLabel, leaderboardX, startListY + lineSpacing, kurskBattle);
+  drawLeaderboardItem(rzhevLabel, leaderboardX, startListY + lineSpacing*2, rzhevBattle);
+
+  if (selectedLeaderboardBattle) {
+    drawLeaderboardBattleInfo(selectedLeaderboardBattle, leaderboardX, startListY + lineSpacing * 3 + 20);
+  }
+
+  let radius = 300;
+  if (totalDeaths === 0) {
+    fill(255, 0, 0);
+    text("No data to display", centerX, centerY);
+    drawResetButton();
+    return;
+  }
+
+  let angleAllies = TWO_PI * (totalAlliedDeaths / totalDeaths);
+  let angleAxis   = TWO_PI * (totalAxisDeaths / totalDeaths);
+  let angleCiv    = TWO_PI * (totalCivDeaths / totalDeaths);
+
+  fill(0, 0, 230);
+  arc(centerX + 200, centerY, radius*2, radius*2, 0, angleAllies);
+
+  fill(190, 0, 0);
+  arc(centerX + 200, centerY, radius*2, radius*2, angleAllies, angleAllies + angleAxis);
+
+  fill(0, 100, 0);
+  arc(centerX + 200, centerY, radius*2, radius*2, angleAllies + angleAxis, angleAllies + angleAxis + angleCiv);
+
+  textSize(32);
+  fill(255);
+  textAlign(CENTER, CENTER);
+
+  let alliesPercent = (totalAlliedDeaths / totalDeaths) * 100;
+  let midAlliesAngle = angleAllies / 2;
+  let alliesTextX = centerX + 200 + cos(midAlliesAngle) * (radius * 0.5);
+  let alliesTextY = centerY + sin(midAlliesAngle) * (radius * 0.5);
+  text(nf(alliesPercent, 1, 2) + "%", alliesTextX, alliesTextY);
+
+  let axisPercent = (totalAxisDeaths / totalDeaths) * 100;
+  let midAxisAngle = angleAllies + angleAxis / 2;
+  let axisTextX = centerX + 200 + cos(midAxisAngle) * (radius * 0.5);
+  let axisTextY = centerY + sin(midAxisAngle) * (radius * 0.5);
+  text(nf(axisPercent, 1, 2) + "%", axisTextX, axisTextY);
+
+  let civPercent = (totalCivDeaths / totalDeaths) * 100;
+  let midCivAngle = (angleAllies + angleAxis) + angleCiv / 2;
+  let civTextX = centerX + 200 + cos(midCivAngle) * (radius * 0.5);
+  let civTextY = centerY + sin(midCivAngle) * (radius * 0.5);
+  text(nf(civPercent, 1, 2) + "%", civTextX, civTextY);
+
+  let legendSize = 30;
+  let legendX = centerX + 600;
+  let legendY = centerY - 80;
+
+  fill(0, 0, 255);
+  rect(legendX, legendY, legendSize, legendSize);
+  fill(255);
+  textAlign(LEFT, CENTER);
+  textSize(24);
+  text(translations[currentLanguage].allied, legendX + 40, legendY + legendSize / 2);
+
+  fill(255, 0, 0);
+  rect(legendX, legendY + 50, legendSize, legendSize);
+  fill(255);
+  text(translations[currentLanguage].axis, legendX + 40, legendY + 50 + legendSize / 2);
+
+  fill(0, 255, 0);
+  rect(legendX, legendY + 100, legendSize, legendSize);
+  fill(255);
+  text(translations[currentLanguage].civilians, legendX + 40, legendY + 100 + legendSize / 2);
+
+  drawResetButton();
+
+  textSize(20);
+  let instructionText = translations[currentLanguage].finalInstructionText;
+  let instructionBoxWidth = width * 0.6;
+  let instructionBoxX = -80;
+  let instructionBoxY = 760;
+  fill(255);
+  text(instructionText, instructionBoxX, instructionBoxY, instructionBoxWidth, 200);
+}
+
+
+// =======================================
+// =========== Draw Reset Button =========
+// =======================================
+function drawResetButton() {
+  resetBtnW = 230;
+  resetBtnH = 50;
+  resetBtnX = (width - resetBtnW) / 2;
+  resetBtnY = height - 150;
+
+  fill(255, 0, 0);
+  rect(resetBtnX, resetBtnY, resetBtnW, resetBtnH, 10);
+
+  fill(255);
+  textSize(24);
+  textAlign(CENTER, CENTER);
+  text(translations[currentLanguage].resetSlider, resetBtnX + resetBtnW / 2, resetBtnY + resetBtnH / 2);
+}
+
+
+// =======================================
+// ====== Leaderboard Battle Info ========
+// =======================================
+function drawLeaderboardBattleInfo(battle, boxX, boxY) {
+  let w = 420;
+  let h = 380;
+
+  fill(255, 255, 255);
+  noStroke();
+  rect(boxX, boxY, w, h, 30);
+
+  fill(0);
+  textAlign(LEFT, TOP);
+  textSize(20);
+
+  let margin = 20;
+  let x = boxX + margin;
+  let y = boxY + margin;
+  let lineH = 30;
+
+  textStyle(BOLD);
+  text(translations[currentLanguage].battleName, x, y);
+  let labelW = textWidth(translations[currentLanguage].battleName);
+  textStyle(NORMAL);
+  text(battle[currentLanguage].battleName, x + labelW, y);
+  y += lineH;
+
+  textStyle(BOLD);
+  text(translations[currentLanguage].date, x, y);
+  labelW = textWidth(translations[currentLanguage].date);
+  textStyle(NORMAL);
+  text(battle[currentLanguage].date, x + labelW, y);
+  y += lineH;
+
+  textStyle(BOLD);
+  text(translations[currentLanguage].whyDeaths, x, y);
+  labelW = textWidth(translations[currentLanguage].whyDeaths);
+  textStyle(NORMAL);
+  text(battle[currentLanguage].summary, x, y + lineH, w - margin, h - (y - boxY) - margin*2);
+}
+
+
+// =======================================
+// =========== Draw Legend Box ===========
+// =======================================
 function drawLegend() {
   let legendX = 20;
-  let legendY = height - (showDetail ? 200 : 250);
+  let legendY = height - (showDetail ? 180 : 220);
   let legendWidth = 200;
-  let legendHeight = showDetail ? 150 : 110; 
+  let legendHeight = showDetail ? 150 : 110;
 
   fill(255, 255, 255, 200);
   noStroke();
@@ -837,25 +1213,34 @@ function drawLegend() {
   }
 }
 
+
+// =======================================
+// ======= Scroll Box Dimensions =========
+// =======================================
 function getScrollBoxDimensions() {
   return {
     smallBoxWidth: 400,
     smallBoxHeight: 500,
-    smallBoxX: 20,
-    smallBoxY: bannerHeight + 20,
+    smallBoxX: -1280,
+    smallBoxY: 20,
     largeBoxWidth: 400,
     largeBoxHeight: 1200,
-    largeBoxX: 20,
-    largeBoxY: bannerHeight + 20,
+    largeBoxX: -1280,
+    largeBoxY: 20,
   };
 }
 
+
+// =======================================
+// =========== Define Data Points ========
+// =======================================
 function defineDataPoints() {
-
-
+  // dataPoints is assumed to be a global array-of-arrays
+  // Make sure it’s loaded or defined in your project.
   let minDeaths = Infinity;
   let maxDeaths = -Infinity;
 
+  // Find min and max for glow
   for (let month of dataPoints) {
     for (let battle of month) {
       battle.deaths = battle.allied + battle.axis + battle.civilians;
@@ -874,15 +1259,26 @@ function defineDataPoints() {
   }
 
   let minRadius = 15;
-  let maxRadius = 100;
+  let maxRadius = 200;
 
   for (let month of dataPoints) {
     for (let battle of month) {
       battle.glowRadius = map(battle.deaths, minDeaths, maxDeaths, minRadius, maxRadius);
       battle.totalDeaths = battle.deaths;
-      battle.iconsPerRow = 10; 
+      battle.iconsPerRow = 10;
       battle.iconSize = 20;
       battle.totalRows = ceil(battle.totalDeaths / battle.iconsPerRow);
     }
   }
+}
+
+
+// =======================================
+// ====== Convert Month Index to String ==
+// =======================================
+function getMonthYearString(index) {
+  let totalMonthsFromStart = index;
+  let year = startYear + Math.floor((startMonth + totalMonthsFromStart) / 12);
+  let month = (startMonth + totalMonthsFromStart) % 12;
+  return monthNames[currentLanguage][month] + " " + year;
 }
