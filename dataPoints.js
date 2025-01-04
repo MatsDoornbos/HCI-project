@@ -14,7 +14,7 @@ dataPoints[0].push({
     date: '1 September 1939',
     winner: 'Axis',
     summary: 'World War II began with the German invasion of Poland. Germany attacked Poland using the Blitzkrieg tactic, a fast and coordinated assault. This surprise attack quickly broke through the Polish defense lines, allowing the Germans to capture large parts of Poland within a few weeks.',
-    battleName: 'Invasion of Poland'
+    battleName: 'The invasion of Poland'
   },
   nl: {
     location: 'Polen',
@@ -878,7 +878,7 @@ dataPoints[14].push({
   });
   
   // Battle of Crete June 1941
-dataPoints[20].push({
+dataPoints[21].push({
     x: 1200,
     y: 1250,
     civilians: 15000,
@@ -1827,7 +1827,7 @@ dataPoints[59].push({
 });
 
 // Operation Market Garden September 1944
-dataPoints[58].push({
+dataPoints[60].push({
   x: 815,
   y: 836,
   civilians: 10000,
@@ -1850,7 +1850,7 @@ dataPoints[58].push({
 });
 
 // Battle of the Bulge December 1944
-dataPoints[61].push({
+dataPoints[63].push({
   x: 785,
   y: 885,
   civilians: 3000,
@@ -1873,7 +1873,7 @@ dataPoints[61].push({
 });
 
 // Battle of the Bulge januari 1945
-dataPoints[61].push({
+dataPoints[64].push({
   x: 785,
   y: 885,
   civilians: 3000,
@@ -1896,7 +1896,7 @@ dataPoints[61].push({
 });
 
 // Battle 15: Battle of Berlin April 1945
-dataPoints[66].push({
+dataPoints[67].push({
   x: 965,
   y: 825,
   civilians: 125000,
@@ -1918,7 +1918,7 @@ dataPoints[66].push({
   }
 });
 // Battle of Berlin may 1945
-dataPoints[67].push({
+dataPoints[68].push({
   x: 965,
   y: 825,
   civilians: 125000,
@@ -1937,5 +1937,67 @@ dataPoints[67].push({
     winner: 'Geallieerden',
     summary: 'De Slag om Berlijn was de laatste grote slag van de Tweede Wereldoorlog in Europa. Sovjettroepen lanceerden een grootschalig offensief op de stad, wat leidde tot de inname ervan. De val van Berlijn betekende de ineenstorting van het Derde Rijk, en Adolf Hitler pleegde zelfmoord op 30 april 1945.',
     battleName: 'Slag om Berlijn'
+  }
+});
+// Battle 1.: Battle of Stalingrad februari 1943
+dataPoints[69].push({
+  civilians: 400000,
+  allied: 1120000,
+  axis: 850000,
+  en: {
+    location: 'Stalingrad, Soviet Union',
+    date: '23 August 1942 - 2 February 1943',
+    winner: 'Allies',
+    summary: 'The Battle of Stalingrad was extremely deadly due to intense urban combat, lack of food and supplies, and extreme winter cold. Fighters often battled building by building, leading to heavy casualties among both soldiers and civilians. Additionally, the German siege and the Soviet counteroffensive resulted in massive losses.',
+    battleName: 'Battle of Stalingrad'
+  },
+  nl: {
+    location: 'Stalingrad, Sovjet-Unie',
+    date: '23 augustus 1942 - 2 februari 1943',
+    winner: 'Geallieerden',
+    summary: 'De Slag om Stalingrad was extreem dodelijk vanwege de intensieve stedelijke gevechten, het gebrek aan voedsel en voorraden, en de extreme winterkou. De strijders vochten vaak van gebouw tot gebouw, wat leidde tot hoge slachtoffers onder zowel soldaten als burgers. Bovendien zorgde de belegering door de Duitsers en het Sovjet-tegenoffensief voor massale verliezen.',
+    battleName: 'Slag om Stalingrad'
+  }
+});
+ 
+// Battle 2.: Battle of Kursk juli 1943
+dataPoints[69].push({
+  civilians: 70000,
+  allied: 1200000,
+  axis: 900000,
+  en: {
+    location: 'Kursk, Soviet Union',
+    date: '5 July 1943 - 23 August 1943',
+    winner: 'Allies',
+    summary: 'The Battle of Kursk was deadly due to the massive scale of tanks and manpower involved. It was the largest tank battle in history, and the minefields and massive artillery bombardments took a heavy toll. The German strategy to deliver a decisive blow failed, leading to prolonged fighting and heavy casualties on both sides.',
+    battleName: 'Battle of Kursk'
+  },
+  nl: {
+    location: 'Koersk, Sovjet-Unie',
+    date: '5 juli 1943 - 23 augustus 1943',
+    winner: 'Geallieerden',
+    summary: 'De Slag om Koersk was zo dodelijk door de enorme schaal van tanks en manschappen die betrokken waren. Het was de grootste tankslag in de geschiedenis, en de mijnenvelden en massale artilleriebeschietingen eisten een hoge tol. De Duitse strategie om een beslissende klap uit te delen mislukte, wat leidde tot langdurige gevechten en zware verliezen aan beide kanten.',
+    battleName: 'Slag bij Koersk'
+  }
+});
+
+// Battle 3.: Battle of Rzhev March 1942
+dataPoints[69].push({
+  civilians: 50000,
+  allied: 1300000,
+  axis: 600000,
+  en: {
+    location: 'Rzhev, Soviet Union',
+    date: '8 January 1942 - 31 March 1942',
+    winner: 'Axis',
+    summary: 'The Battle of Rzhev was called the "meat grinder" due to the prolonged and bloody trench warfare. The terrain was heavily fortified by the Germans, and Soviet assaults were poorly coordinated, leading to massive casualties. Harsh weather conditions and a lack of medical care amplified the battle’s deadliness.',
+    battleName: 'Battle of Rzhev'
+  },
+  nl: {
+    location: 'Rzhev, Sovjet-Unie',
+    date: '8 januari 1942 - 31 maart 1942',
+    winner: 'Asmogendheden',
+    summary: 'De Slag om Rzhev werd een "vlees molen" genoemd vanwege de langdurige en bloedige loopgravenoorlog. Het terrein was sterk versterkt door de Duitsers, en de Sovjetaanvallen waren slecht gecoördineerd, wat resulteerde in enorme verliezen. De barre weersomstandigheden en het gebrek aan medische zorg versterkten de dodelijkheid van deze veldslag.',
+    battleName: 'Slag om Rzhev'
   }
 });
